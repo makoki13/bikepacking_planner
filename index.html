@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bikepacking planner</title>
+    <title>Ultracycling planner</title>
     <link rel="stylesheet" href="index.css" />
     <script>
         // Check that service workers are supported
@@ -24,16 +24,23 @@
 
 <body>
     <header>
-        <h1>Bikepacking planner</h1>
-        <form id="new-task-form">
-            <input type="text" name="new-task-input" id="new-task-input" placeholder="What do you have planned?" />
-            <input type="submit" id="new-task-summit" value="Add task" />
-        </form>
+        <h1>UC PLANNER</h1>
+        <button class="btn_prj" onclick="crea_fichero()">NEW FILE</button>
+        <button class="btn_prj" onclick="$('#file-input').trigger('click');">LOAD FILE</button>
+        <input id="file-input" type="file" name="name" style="display: none;" onchange="cargar_fichero(this)" />
     </header>
     <main>
+        <header>
+            <button id="btn_course_climb" class="btn_course" onclick="insertar_ascenso()">CLIMB</button></td>
+            <button id="btn_course_desc" class="btn_course" onclick="insertar_descenso()">DESCEND</button></td>
+            <button id="btn_course_cp" class="btn_course" onclick="insertar_cp()">Garmin CP</button></td>
+            <button id="btn_course_add" class="btn_course" onclick="insertar_registro()">POI</button></td>
+            <button id="btn_course_save" class="btn_course" onclick="guardar()">SAVE</button></td>
+            <button id="btn_course_imprime" class="btn_imprime" onclick="imprime_pdf()">PDF</button></td>
+        </header>
         <section class="task-list">
-            <h2>Tasks</h2>
-            <div id="tasks">
+            <div class="ui-layout-center" style="color:black;text-align:center;">
+                <iframe id="frm_tabla" style="width:100%;height:100%;border:1px solid black;" src="tabla.html"></iframe>
             </div>
         </section>
     </main>
