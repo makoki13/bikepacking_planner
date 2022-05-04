@@ -26,10 +26,11 @@ body {
 }
 
 header {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+    border: 1px solid var(--dark);
 }
 
 header h1 {
@@ -39,7 +40,15 @@ header h1 {
     margin-bottom: 1rem;
 }
 
-h1 {
+header h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+}
+
+h1,
+h2 {
     text-align: center;
 }
 
@@ -166,7 +175,7 @@ main {
 }
 
 .btn_prj {
-    width: 150px;
+    width: 170px;
     text-align: center;
     font-size: 24px;
     background-color: var(--light);
@@ -174,6 +183,7 @@ main {
     text-shadow: 1px 1px 1px var(--grey);
     text-align: center;
     border: 1px solid var(--darkest);
+    cursor: pointer;
 }
 
 .btn_course {
@@ -197,5 +207,45 @@ main {
     text-shadow: 1px 1px 1px var(--grey);
     text-align: center;
     border: 1px solid var(--darkest);
+    visibility: hidden;
+}
+
+#bloqueo {
+    position: absolute;
+    top: 10.5vh;
+    left: 10.5vw;
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid #000000;
+    background: #DDDDDD;
+    z-index: 3;
+    filter: alpha(opacity=50);
+    opacity: .5;
+    visibility: hidden;
+}
+
+#nuevo_poi {
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid #000000;
+    background: #DDDDDD;
+    z-index: 4;
+    visibility: hidden;
+}
+
+#nuevo_poi_sombra {
+    position: absolute;
+    top: 135px;
+    left: 335px;
+    height: 200px;
+    width: 400px;
+    border: 1px solid #AAAAAA;
+    background: #AAAAAA;
+    z-index: 3;
+    filter: alpha(opacity=50);
+    opacity: .5;
     visibility: hidden;
 }

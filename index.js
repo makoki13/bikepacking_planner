@@ -1,42 +1,65 @@
-//creating database structure
-const db = new Dexie('Todo App')
-db.version(1).stores({ todos: '++id, todo' })
+var nombre_etapa = '';
 
-const form = document.querySelector("#new-task-form");
-const input = document.querySelector("#new-task-input");
-const list_el = document.querySelector("#tasks");
+async function crea_fichero() {
+    var resp = prompt("Stage name: ");
+    if (!resp) return;
 
+    nombre_etapa = resp;
 
+    estado_botones_etapa('visible')
 
-//add todo
-form.onsubmit = async (event) => {
-    event.preventDefault();
-    const todo = input.value;
-    await db.todos.add({ todo })
-    await getTodos()
-    form.reset()
-};
+    document.getElementById("nombre_stage").innerHTML = nombre_etapa;
 
-//display todo
-const getTodos = async () => {
-    const allTodos = await db.todos.reverse().toArray()
-    list_el.innerHTML = allTodos.map(todo => `
-	
-	<div class="task">
-	<div class="content">
-	<input id="edit" class="text" readonly="readonly" type="text" value= ${todo.todo}>
-	</div>
-	<div class="actions">
-	<button class="delete" onclick="deleteTodo(event, ${todo.id})">Delete</button>
-	</div>
-	</div>
-	`).join("")
+    const db = new Dexie('pruebas');
+    console.log(db);
+    db.version(1).stores({
+        pruebas: '++id, nombre'
+    });
 
+    db.pruebas.bulkPut([
+        { id: 1, nombre: nombre_etapa }
+    ]).then(() => {
+        console.log('bulkPut ok');
+    });
+
+    const databases = Dexie.getDatabaseNames();
+    console.log(databases);
 }
-window.onload = getTodos
 
-//delete todo
-const deleteTodo = async (event, id) => {
-    await db.todos.delete(id)
-    await getTodos()
+function cargar_fichero(nombre_etapa) {
+    console.log('cargar_fichero index', nombre_etapa);
+    //document.getElementById('frm_tabla').contentWindow.cargar_fichero(nombre_fichero);
+    document.getElementById('btn_course_climb').style.visibility = 'visible';
+    document.getElementById('btn_course_desc').style.visibility = 'visible';
+    document.getElementById('btn_course_cp').style.visibility = 'visible';
+    document.getElementById('btn_course_add').style.visibility = 'visible';
+    document.getElementById('btn_course_save').style.visibility = 'visible';
+    document.getElementById('btn_course_imprime').style.visibility = 'visible';
 }
+
+function estado_botones_etapa(visible) {
+    document.getElementById('btn_course_climb').style.visibility = visible;
+    document.getElementById('btn_course_desc').style.visibility = visible;
+    document.getElementById('btn_course_cp').style.visibility = visible;
+    document.getElementById('btn_course_add').style.visibility = visible;
+    document.getElementById('btn_course_save').style.visibility = visible;
+    document.getElementById('btn_course_imprime').style.visibility = visible;
+}
+
+function insertar_registro() {
+    document.getElementById('frmNuevaVersion').src = 'nuevo_poi.html';
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
+
+function desbloquea_insertar_registro() {
+    document.getElementById('bloqueo').style.visibility = 'hidden';
+    document.getElementById('nuevo_poi').style.visibility = 'hidden';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'hidden';
+}
+
+function get_new_indice(incremento = 0) {
+    return document.getElementById('frm_tabla').contentWindow.get_new_indice(incremento);
+}
+
