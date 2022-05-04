@@ -45,6 +45,13 @@ function recalcula(pois) {
     return lista;
 }
 
+/* add a new poi to lista */
+function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
+    console.log(pois);
+    pois.append({ _indice: get_new_indice(1), nombre_poi, distancia, notas, atributos, punto_referencia });
+}
+
+
 function carga(fichero) {
     var distancia_anterior = 0; var lista = [];
     pois = $.getJSON(fichero, function (data) {

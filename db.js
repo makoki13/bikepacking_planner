@@ -12,7 +12,7 @@ async function db_crea_prueba(nombre_etapa) {
     console.log(db);
 }
 
-function db_add(id, nombre, distancia, notas, atributos, punto_referencia) {
+async function db_add(id, nombre, distancia, notas, atributos, punto_referencia) {
 
     console.log('db_add(id, nombre, distancia, notas, atributos, punto_referencia)');
 
