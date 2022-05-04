@@ -12,10 +12,15 @@ function get_new_indice(incremento) {
     return indice + 1 + incremento;
 }
 
-function recalcula() {
+function recalcula(pois) {
     var distancia_anterior = 0; var lista = [];
     var i = 0;
+
+    pois.sort(compara_distancia);
+
     $.each(pois, function (key, value) {
+        console.log('value', value);
+
         if (i > 0) {
             var valor_distancia_anterior = parseFloat(value.distancia) - parseFloat(distancia_anterior);
         }
@@ -127,7 +132,7 @@ function set_distancia(o, indice) {
     muestra(pois);
 }
 
-function muestra() {
+function muestra(pois) {
     $("#cuerpo_tabla tr").remove();
     var fila = '';
     $.each(pois, function (key, value) {
@@ -270,18 +275,10 @@ function get_punto(indice) {
     window.parent.envia_punto(_get_punto(indice));
 }
 
-function cargar_fichero(nombre_fichero) {
-    nom_fichero = nombre_fichero;
-    carga(nom_fichero).then(function (returndata) {
-        pois = returndata;
-
-        pois.sort(compara_distancia);
-        muestra(pois);
-
-        $('#principal').floatThead();
-
-        window.parent.document.getElementById('fichero').innerHTML = nom_fichero;
-    });
+async function cargar_etapa(pois) {
+    pois = recalcula(pois);
+    console.log('pois', pois);
+    muestra(pois);
 }
 
 function get_pois() {

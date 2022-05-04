@@ -1,6 +1,6 @@
 var nombre_etapa = '';
 
-async function crea_fichero() {
+async function crea_etapa() {
     var resp = prompt("Stage name: ");
     if (!resp) return;
 
@@ -10,31 +10,33 @@ async function crea_fichero() {
 
     document.getElementById("nombre_stage").innerHTML = nombre_etapa;
 
-    const db = new Dexie('pruebas');
-    console.log(db);
-    db.version(1).stores({
-        pruebas: '++id, nombre'
-    });
-
-    db.pruebas.bulkPut([
-        { id: 1, nombre: nombre_etapa }
-    ]).then(() => {
-        console.log('bulkPut ok');
-    });
-
-    const databases = Dexie.getDatabaseNames();
-    console.log(databases);
+    db_crea_prueba(nombre_etapa);
 }
 
-function cargar_fichero(nombre_etapa) {
+function add(id, nombre, distancia, notas, atributos, punto_referencia) {
+    db_add(id, nombre, distancia, notas, atributos, punto_referencia)
+}
+
+function cargar_etapa() {
+    var resp = prompt("Stage name: ");
+    if (!resp) return;
+
+    nombre_etapa = resp;
+
     console.log('cargar_fichero index', nombre_etapa);
-    //document.getElementById('frm_tabla').contentWindow.cargar_fichero(nombre_fichero);
+
+    pois = db_get_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
+
     document.getElementById('btn_course_climb').style.visibility = 'visible';
     document.getElementById('btn_course_desc').style.visibility = 'visible';
     document.getElementById('btn_course_cp').style.visibility = 'visible';
     document.getElementById('btn_course_add').style.visibility = 'visible';
     document.getElementById('btn_course_save').style.visibility = 'visible';
     document.getElementById('btn_course_imprime').style.visibility = 'visible';
+}
+
+async function get_pois(nombre_etapa) {
+    return db_get_pois(nombre_etapa);
 }
 
 function estado_botones_etapa(visible) {

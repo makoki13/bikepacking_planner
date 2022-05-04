@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
     <title>Ultracycling planner</title>
     <link rel="stylesheet" href="index.css" />
     <script>
@@ -26,8 +28,8 @@
 <body>
     <header>
         <h1>UC PLANNER</h1>
-        <button class="btn_prj" onclick="crea_fichero()">NEW STAGE</button>
-        <button class="btn_prj" onchange="cargar_fichero(this)">LOAD STAGE</button>
+        <button class="btn_prj" onclick="crea_etapa()">NEW STAGE</button>
+        <button class="btn_prj" onclick="cargar_etapa()">LOAD STAGE</button>
     </header>
     <main>
         <header>
@@ -40,18 +42,18 @@
             <button id="btn_course_save" class="btn_course" onclick="guardar()">SAVE</button>
             <button id="btn_course_imprime" class="btn_imprime" onclick="imprime_pdf()">PDF</button>
         </header>
-        <section class="task-list">
-            <div class="ui-layout-center" style="color:black;text-align:center;">
+        <section class="task-list" style="padding: 0px;">
+            <div style="color:black;text-align:center;width:100%;">
                 <iframe id="frm_tabla" style="width:100%;height:100%;border:1px solid black;" src="tabla.html"></iframe>
+                <div id="bloqueo"></div>
+                <div id="nuevo_poi"><iframe id="frmNuevaVersion" style="width:100%; height:100%"></iframe></div>
+                <div id="nuevo_poi_sombra"></div>
             </div>
         </section>
     </main>
 
-    <div id="bloqueo"></div>
 
-    <div id="nuevo_poi"><iframe id="frmNuevaVersion" style="width:100%; height:100%"></iframe></div>
-
-    <div id="nuevo_poi_sombra"></div>
 
     <script src="index.js"></script>
+    <script>Dexie.debug = true;</script>
 </body>
