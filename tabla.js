@@ -1,142 +1,13 @@
 var pois;
-var nom_fichero = '';
 
-function get_new_indice(incremento) {
-    var indice = 0;
-    $.each(pois, function (key, value) {
-        if (value._indice > indice) {
-            indice = value._indice;
-        }
-    });
-
-    return indice + 1 + incremento;
-}
-
-function recalcula(pois) {
-    var distancia_anterior = 0; var lista = [];
-    var i = 0;
-
-    pois.sort(compara_distancia);
-
-    $.each(pois, function (key, value) {
-        console.log('value', value);
-
-        if (i > 0) {
-            var valor_distancia_anterior = parseFloat(value.distancia) - parseFloat(distancia_anterior);
-        }
-
-        lista[i] = {};
-        lista[i]._indice = value._indice;
-        lista[i].nombre_poi = value.nombre_poi;
-        lista[i].distancia = value.distancia;
-        if (i > 0) {
-            lista[i - 1].intervalo = valor_distancia_anterior.toFixed(1);
-        }
-        lista[i].notas = value.notas;
-
-        lista[i].atributos = value.atributos;
-        lista[i].punto_referencia = value.punto_referencia;
-
-        distancia_anterior = parseFloat(value.distancia);
-
-        i++;
-    })
-
-    return lista;
-}
-
-/* add a new poi to lista */
-function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
-    console.log(pois);
-    pois.append({ _indice: get_new_indice(1), nombre_poi, distancia, notas, atributos, punto_referencia });
-}
-
-
-function carga(fichero) {
-    var distancia_anterior = 0; var lista = [];
-    pois = $.getJSON(fichero, function (data) {
-        var i = 0;
-        $.each(data, function (key, value) {
-            if (i > 0) {
-                var valor_distancia_anterior = value.distancia - distancia_anterior;
-            }
-
-            lista[i] = {};
-            lista[i]._indice = value._indice;
-            lista[i].nombre_poi = value.nombre_poi;
-            lista[i].distancia = parseFloat(value.distancia).toFixed(1);
-            if (i > 0) {
-                lista[i - 1].intervalo = valor_distancia_anterior.toFixed(1);
-            }
-            lista[i].notas = value.notas;
-            lista[i].atributos = value.atributos;
-            lista[i].punto_referencia = value.punto_referencia;
-
-            distancia_anterior = parseFloat(value.distancia);
-
-            i++;
-        })
-    }).then(function (data) {
-        return lista;
-    });
-
-    return pois;
-}
-
-function set_nombre(o, indice) {
-    var resp = prompt("Texto", o.innerHTML);
-    if (!resp) return;
-
-    if ($.trim(resp) == '') {
-        alert("El texto no puede quedar vacío");
-        return;
+function compara_distancia(a, b) {
+    if (parseFloat(a.distancia) < parseFloat(b.distancia)) {
+        return -1;
     }
-
-    o.innerHTML = resp;
-
-    $.each(pois, function (key, value) {
-        if (value._indice == indice) {
-            pois[key].nombre_poi = resp;
-        }
-    });
-}
-
-function set_notas(o, indice) {
-    var texto_actual = o.innerHTML;
-    var resp = prompt("Notas", texto_actual);
-    if (!resp) return;
-
-    o.innerHTML = resp;
-
-    $.each(pois, function (key, value) {
-        if (value._indice == indice) {
-            pois[key].notas = resp;
-        }
-    });
-}
-
-function set_distancia(o, indice) {
-    var distancia = o.innerHTML;
-
-    var resp = prompt("Distancia", distancia);
-    if (!resp) return;
-
-    if ($.trim(resp) == '') {
-        alert("El valor no puede quedar vacío");
-        return;
+    if (parseFloat(a.distancia) > parseFloat(b.distancia)) {
+        return 1;
     }
-
-    o.innerHTML = resp;
-
-    $.each(pois, function (key, value) {
-        if (value._indice == indice) {
-            pois[key].distancia = parseFloat(resp);
-        }
-    });
-
-    pois = recalcula(pois);
-
-    muestra(pois);
+    return 0;
 }
 
 function muestra(pois) {
@@ -151,7 +22,6 @@ function muestra(pois) {
             $.each(value.atributos, function (key, value) {
                 clase_celda += 'atributo_' + value + ' ';
             });
-
         }
 
         fila += '<td class="' + clase_celda + '" onclick="set_nombre(this,' + value._indice + ');">' + value.nombre_poi + '</td>';
@@ -193,11 +63,72 @@ function muestra(pois) {
                 }
             }
         }
-        fila += '<td title="' + titulo + '"><button onclick="borra(' + value._indice + ')" style="color:white">B</button></td>';
+        fila += '<td title="' + titulo + '"><button onclick="borra(' + value._indice + ',' + value.punto_referencia + ')" style="color:white">B</button></td>';
         fila += '</tr>';
     })
 
     $("#cuerpo_tabla").append(fila);
+}
+
+function recalcula(pois) {
+    var distancia_anterior = 0; var lista = [];
+    var i = 0;
+
+    pois.sort(compara_distancia);
+
+    $.each(pois, function (key, value) {
+        console.log('value', value);
+
+        if (i > 0) {
+            var valor_distancia_anterior = parseFloat(value.distancia) - parseFloat(distancia_anterior);
+        }
+
+        lista[i] = {};
+        lista[i]._indice = value.id;
+        lista[i].nombre_poi = value.nombre_poi;
+        lista[i].distancia = value.distancia;
+        if (i > 0) {
+            lista[i - 1].intervalo = valor_distancia_anterior.toFixed(1);
+        }
+        lista[i].notas = value.notas;
+
+        lista[i].atributos = value.atributos;
+        lista[i].punto_referencia = value.punto_referencia;
+
+        distancia_anterior = parseFloat(value.distancia);
+
+        i++;
+    })
+
+    return lista;
+}
+
+async function cargar_etapa(pois) {
+    console.log('pois (antes de)', pois);
+    pois = recalcula(pois);
+    console.log('pois (despues de)', pois);
+    muestra(pois);
+}
+
+/************************ funciones de insercion , modificacion y borrado  */
+/************************ funciones de insercion , modificacion y borrado  */
+/************************ funciones de insercion , modificacion y borrado  */
+function get_new_indice(incremento) {
+    var indice = 0;
+    $.each(pois, function (key, value) {
+        if (value._indice > indice) {
+            indice = value._indice;
+        }
+    });
+
+    return indice + 1 + incremento;
+}
+
+
+/* add a new poi to lista */
+function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
+    console.log(pois);
+    pois.append({ _indice: get_new_indice(1), nombre_poi, distancia, notas, atributos, punto_referencia });
 }
 
 function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia) {
@@ -210,62 +141,143 @@ function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia)
     muestra(pois);
 }
 
-function guardar() {
+function borra(indice, indice_de_referencia) {
+    console.log('indice', indice);
+
+    var nombre_etapa = window.parent.get_nombre_etapa();
+
+    db_delete(indice).then(
+        function () {
+            if (indice != indice_de_referencia) {
+                db_delete(indice_de_referencia).then(
+                    function () {
+                        db_get_all_pois(nombre_etapa).then(
+                            function (pois) {
+                                cargar_etapa(pois);
+                            }
+                        );
+                    });
+            }
+            else {
+                db_get_all_pois(nombre_etapa).then(
+                    function (pois) {
+                        cargar_etapa(pois);
+                    }
+                );
+            }
+        });
+}
+
+
+/* function carga(fichero) {
+    var distancia_anterior = 0; var lista = [];
+    pois = $.getJSON(fichero, function (data) {
+        var i = 0;
+        $.each(data, function (key, value) {
+            if (i > 0) {
+                var valor_distancia_anterior = value.distancia - distancia_anterior;
+            }
+
+            lista[i] = {};
+            lista[i]._indice = value._indice;
+            lista[i].nombre_poi = value.nombre_poi;
+            lista[i].distancia = parseFloat(value.distancia).toFixed(1);
+            if (i > 0) {
+                lista[i - 1].intervalo = valor_distancia_anterior.toFixed(1);
+            }
+            lista[i].notas = value.notas;
+            lista[i].atributos = value.atributos;
+            lista[i].punto_referencia = value.punto_referencia;
+
+            distancia_anterior = parseFloat(value.distancia);
+
+            i++;
+        })
+    }).then(function (data) {
+        return lista;
+    });
+
+    return pois;
+}
+ */
+
+
+/********************* funciones no revisadas */
+/********************* funciones no revisadas */
+/********************* funciones no revisadas */
+
+function set_nombre(o, indice) {
+    var resp = prompt("Texto", o.innerHTML);
+    if (!resp) return;
+
+    if ($.trim(resp) == '') {
+        alert("El texto no puede quedar vacío");
+        return;
+    }
+
+    o.innerHTML = resp;
+
+    db_modifica(indice, 'nombre_poi', resp).then(
+        function () {
+        }
+    );
+}
+
+function set_notas(o, indice) {
+    var texto_actual = o.innerHTML;
+    var resp = prompt("Notas", texto_actual);
+    if (!resp) return;
+
+    o.innerHTML = resp;
+
+    db_modifica(indice, 'notas', resp).then(
+        function () {
+        }
+    );
+}
+
+function set_distancia(o, indice) {
+    var distancia = o.innerHTML;
+
+    var resp = prompt("Distancia", distancia);
+    if (!resp) return;
+
+    if ($.trim(resp) == '') {
+        alert("El valor no puede quedar vacío");
+        return;
+    }
+
+    o.innerHTML = resp;
+
+    var nombre_etapa = window.parent.get_nombre_etapa();
+
+    db_modifica(indice, 'distancia', resp).then(
+        function () {
+            db_get_all_pois(nombre_etapa).then(
+                function (pois) {
+                    cargar_etapa(pois);
+                }
+            );
+        }
+    );
+}
+
+
+/* function guardar() {
     var a = document.createElement("a");
     var file = new Blob([JSON.stringify(pois, null, 2)], { type: 'text/plain' });
     a.href = URL.createObjectURL(file);
     a.download = nom_fichero;
     a.click();
 }
+ */
 
 
-function borra(indice) {
-    console.log('indice', indice);
-
-    var lista = []; var i = 0; var punto_de_referencia = null; var indice_de_referencia = null;
-    $.each(pois, function (key, value) {
-        if (value._indice != indice) {
-            lista[i] = pois[key];
-            i++;
-        }
-        else {
-            console.log('punto de ref', value.punto_referencia);
-            punto_de_referencia = _get_punto(value.punto_referencia)
-            if (punto_de_referencia) {
-                console.log('punto nuevo', punto_de_referencia, 'indice', value._indice);
-                if (punto_de_referencia.punto_referencia == value._indice) {
-                    indice_de_referencia = punto_de_referencia._indice;
-                    console.log('indice de ref', indice_de_referencia);
-                }
-            }
-        }
-    });
-
-    pois = lista;
-    pois = recalcula(pois);
-
-    if (indice_de_referencia != null) {
-        borra(indice_de_referencia);
-    }
-
-    pois = recalcula(pois);
-
-    muestra();
-}
 
 function edita_registro(o, indice) {
     window.parent.edita_registro(o, indice);
 }
 
-function compara_distancia(a, b) {
-    if (parseFloat(a.distancia) < parseFloat(b.distancia)) {
-        return -1;
-    }
-    if (parseFloat(a.distancia) > parseFloat(b.distancia)) {
-        return 1;
-    }
-    return 0;
-}
 
 function _get_punto(indice) {
     var punto = null;
@@ -280,12 +292,6 @@ function _get_punto(indice) {
 
 function get_punto(indice) {
     window.parent.envia_punto(_get_punto(indice));
-}
-
-async function cargar_etapa(pois) {
-    pois = recalcula(pois);
-    console.log('pois', pois);
-    muestra(pois);
 }
 
 function get_pois() {

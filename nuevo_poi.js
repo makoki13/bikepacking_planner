@@ -34,14 +34,15 @@ function add() {
 }
 
 
-function set_valores_formulario(nombre, distancia, notas, atributos) {
-    document.getElementById('nombre').value = nombre;
-    document.getElementById('distancia').value = distancia;
-    document.getElementById('comentarios').value = notas;
-
-    $.each(atributos, function (i, e) {
-        $('.chosen-select').multiselect('select', e);
-    });
-    $('.chosen-select').multiselect('refresh');
-
+async function set_valores_formulario(indice) {
+    console.log('indice', indice);
+    await db_get_poi(indice).then(
+        function (poi) {
+            document.getElementById('nombre').value = poi.nombre_poi;
+            document.getElementById('distancia').value = poi.distancia;
+            document.getElementById('comentarios').value = poi.notas;
+            $(".chosen-select").val(poi.atributos);
+            $(".chosen-select").trigger("chosen:updated");
+        }
+    );
 }

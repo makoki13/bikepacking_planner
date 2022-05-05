@@ -7,6 +7,21 @@ var _nombre_etapa;
 
 console.log(db);
 
+/** funciones de consulta  */ /** funciones de consulta  */ /** funciones de consulta  */
+
+async function db_get_all_pois(nombre_etapa) {
+    _nombre_etapa = nombre_etapa;
+    console.log(db.pruebas);
+    return await db.pruebas.where('nombre_etapa').equals(nombre_etapa).toArray();
+}
+
+async function db_get_poi(nombre_etapa, indice) {
+    return await db.pruebas.where('nombre_etapa').equals(nombre_etapa).and('id_punto').equals(indice).toArray();
+}
+
+
+/** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
+
 async function db_crea_prueba(nombre_etapa) {
     _nombre_etapa = nombre_etapa;
     console.log(db);
@@ -28,8 +43,32 @@ async function db_add(id, nombre, distancia, notas, atributos, punto_referencia)
     });
 }
 
-async function db_get_pois(nombre_etapa) {
-    _nombre_etapa = nombre_etapa;
-    console.log(db.pruebas);
-    return await db.pruebas.where('nombre_etapa').equals(nombre_etapa).toArray();
+async function db_delete(id) {
+    console.log('db_delete(id)');
+    return await db.pruebas.delete(id);
+}
+
+async function db_modifica(id, campo, valor) {
+    console.log('db_modifica(id, campo, valor)');
+
+    switch (campo) {
+        case 'nombre_poi':
+            await db.pruebas.update(id, { nombre_poi: valor });
+            break;
+        case 'distancia':
+            await db.pruebas.update(id, { distancia: valor });
+            break;
+        case 'notas':
+            await db.pruebas.update(id, { notas: valor });
+            break;
+        case 'atributos':
+            await db.pruebas.update(id, { atributos: valor });
+            break;
+        case 'punto_referencia':
+            await db.pruebas.update(id, { punto_referencia: valor });
+            break;
+        default:
+            console.log('campo no reconocido');
+            break;
+    }
 }

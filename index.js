@@ -1,5 +1,9 @@
 var nombre_etapa = '';
 
+function get_nombre_etapa() {
+    return nombre_etapa;
+}
+
 async function crea_etapa() {
     var resp = prompt("Stage name: ");
     if (!resp) return;
@@ -16,7 +20,7 @@ async function crea_etapa() {
 function add(id, nombre, distancia, notas, atributos, punto_referencia) {
     db_add(id, nombre, distancia, notas, atributos, punto_referencia).then(
         function () {
-            db_get_pois(nombre_etapa).then(
+            db_get_all_pois(nombre_etapa).then(
                 function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); }
             );
         });
@@ -30,7 +34,7 @@ function cargar_etapa() {
 
     console.log('cargar_fichero index', nombre_etapa);
 
-    db_get_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
+    db_get_all_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
 
     document.getElementById('btn_course_climb').style.visibility = 'visible';
     document.getElementById('btn_course_desc').style.visibility = 'visible';
@@ -41,7 +45,7 @@ function cargar_etapa() {
 }
 
 async function get_pois(nombre_etapa) {
-    return db_get_pois(nombre_etapa);
+    return db_get_all_pois(nombre_etapa);
 }
 
 function estado_botones_etapa(visible) {
@@ -55,6 +59,14 @@ function estado_botones_etapa(visible) {
 
 function insertar_registro() {
     document.getElementById('frmNuevaVersion').src = 'nuevo_poi.html';
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
+
+function edita_registro(control, indice) {
+    console.log('edita_registro', control, indice);
+    document.getElementById('frmNuevaVersion').src = 'nuevo_poi.html?edicion=S&indice=' + indice;
     document.getElementById('bloqueo').style.visibility = 'visible';
     document.getElementById('nuevo_poi').style.visibility = 'visible';
     document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
