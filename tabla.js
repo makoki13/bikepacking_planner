@@ -48,7 +48,7 @@ function muestra(pois) {
             if (value.atributos.length == 0) {
                 clase_cero = 'cero';
             }
-            fila += '<td class="atributos ' + clase_cero + '" onclick="edita_registro(this,' + value._indice + ')">' + value.atributos.length + '</td>';
+            fila += '<td class="atributos ' + clase_cero + '" onclick="edita_registro(' + value._indice + ')">' + value.atributos.length + '</td>';
         }
         else {
             fila += '<td class="atributos" onclick="edita_registro(this,' + value._indice + ')">&nbsp</td>';
@@ -77,8 +77,6 @@ function recalcula(pois) {
     pois.sort(compara_distancia);
 
     $.each(pois, function (key, value) {
-        console.log('value', value);
-
         if (i > 0) {
             var valor_distancia_anterior = parseFloat(value.distancia) - parseFloat(distancia_anterior);
         }
@@ -104,9 +102,7 @@ function recalcula(pois) {
 }
 
 async function cargar_etapa(pois) {
-    console.log('pois (antes de)', pois);
     pois = recalcula(pois);
-    console.log('pois (despues de)', pois);
     muestra(pois);
 }
 
@@ -127,7 +123,6 @@ function get_new_indice(incremento) {
 
 /* add a new poi to lista */
 function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
-    console.log(pois);
     pois.append({ _indice: get_new_indice(1), nombre_poi, distancia, notas, atributos, punto_referencia });
 }
 
@@ -142,8 +137,6 @@ function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia)
 }
 
 function borra(indice, indice_de_referencia) {
-    console.log('indice', indice);
-
     var nombre_etapa = window.parent.get_nombre_etapa();
 
     db_delete(indice).then(
@@ -274,8 +267,8 @@ function set_distancia(o, indice) {
 
 
 
-function edita_registro(o, indice) {
-    window.parent.edita_registro(o, indice);
+function edita_registro(indice) {
+    window.parent.edita_registro(indice);
 }
 
 

@@ -1,6 +1,6 @@
 var db = new Dexie('bikepacking');
-db.version(5).stores({
-    pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia'
+db.version(9).stores({
+    pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,[id+nombre_etapa]'
 });
 
 var _nombre_etapa;
@@ -11,12 +11,19 @@ console.log(db);
 
 async function db_get_all_pois(nombre_etapa) {
     _nombre_etapa = nombre_etapa;
-    console.log(db.pruebas);
     return await db.pruebas.where('nombre_etapa').equals(nombre_etapa).toArray();
 }
 
 async function db_get_poi(nombre_etapa, indice) {
-    return await db.pruebas.where('nombre_etapa').equals(nombre_etapa).and('id_punto').equals(indice).toArray();
+    var valor;
+    var pois = await db_get_all_pois(nombre_etapa);
+    pois.forEach(element => {
+        if (element.id == indice) {
+            valor = element;
+        }
+    });
+
+    return valor;
 }
 
 

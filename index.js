@@ -32,8 +32,6 @@ function cargar_etapa() {
 
     nombre_etapa = resp;
 
-    console.log('cargar_fichero index', nombre_etapa);
-
     db_get_all_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
 
     document.getElementById('btn_course_climb').style.visibility = 'visible';
@@ -64,8 +62,8 @@ function insertar_registro() {
     document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
 }
 
-function edita_registro(control, indice) {
-    console.log('edita_registro', control, indice);
+function edita_registro(indice) {
+    console.log('edita_registro', indice);
     document.getElementById('frmNuevaVersion').src = 'nuevo_poi.html?edicion=S&indice=' + indice;
     document.getElementById('bloqueo').style.visibility = 'visible';
     document.getElementById('nuevo_poi').style.visibility = 'visible';

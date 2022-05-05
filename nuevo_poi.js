@@ -35,9 +35,11 @@ function add() {
 
 
 async function set_valores_formulario(indice) {
-    console.log('indice', indice);
-    await db_get_poi(indice).then(
+    var nombre_etapa = window.parent.get_nombre_etapa();
+    console.log('ne,nombre_etapa', nombre_etapa);
+    await db_get_poi(nombre_etapa, indice).then(
         function (poi) {
+            console.log('poi', poi);
             document.getElementById('nombre').value = poi.nombre_poi;
             document.getElementById('distancia').value = poi.distancia;
             document.getElementById('comentarios').value = poi.notas;
