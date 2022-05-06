@@ -17,20 +17,12 @@ async function crea_etapa() {
     db_crea_prueba(nombre_etapa);
 }
 
-function add(id, nombre, distancia, notas, atributos, punto_referencia) {
-    db_add(id, nombre, distancia, notas, atributos, punto_referencia).then(
-        function () {
-            db_get_all_pois(nombre_etapa).then(
-                function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); }
-            );
-        });
-}
-
 function cargar_etapa() {
     var resp = prompt("Stage name: ");
     if (!resp) return;
 
     nombre_etapa = resp;
+    document.getElementById("nombre_stage").innerHTML = nombre_etapa;
 
     db_get_all_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
 
@@ -42,9 +34,11 @@ function cargar_etapa() {
     document.getElementById('btn_course_imprime').style.visibility = 'visible';
 }
 
-async function get_pois(nombre_etapa) {
-    return db_get_all_pois(nombre_etapa);
+// desde nuevo_poi.js
+function refresca_etapa(pois) {
+    document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois);
 }
+
 
 function estado_botones_etapa(visible) {
     document.getElementById('btn_course_climb').style.visibility = visible;

@@ -8,18 +8,43 @@ function salir() {
 }
 
 function add() {
+    var nombre_etapa = window.parent.get_nombre_etapa();
+
     if (edicion == 'S') {
-        window.parent.borra_punto(indice);
+        console.log('edicion', 'indice', indice);
+        var punto = document.getElementById('nombre').value;
+        var distancia = parseFloat(document.getElementById('distancia').value);
+        var comentarios = document.getElementById('comentarios').value;
+        var lista_atributos = $(".chosen-select").val();
+
+        db_modifica_registro(indice, punto, distancia, comentarios, lista_atributos).then(
+            function () {
+                db_get_all_pois(nombre_etapa).then(
+                    function (pois) {
+                        window.parent.refresca_etapa(pois);
+                    }
+                );
+            });
     }
     else {
+        console.log('adicion');
         indice = window.parent.get_new_indice();
-    }
-    var punto = document.getElementById('nombre').value;
-    var distancia = parseFloat(document.getElementById('distancia').value);
-    var comentarios = document.getElementById('comentarios').value;
-    var lista_atributos = $(".chosen-select").val();
 
-    window.parent.add(indice, punto, distancia, comentarios, lista_atributos, indice);
+        var nombre = document.getElementById('nombre').value;
+        var distancia = parseFloat(document.getElementById('distancia').value);
+        var comentarios = document.getElementById('comentarios').value;
+        var lista_atributos = $(".chosen-select").val();
+
+        //window.parent.add(indice, punto, distancia, comentarios, lista_atributos, indice);
+        db_add(indice, nombre, distancia, comentarios, lista_atributos, indice).then(
+            function () {
+                db_get_all_pois(nombre_etapa).then(
+                    function (pois) {
+                        window.parent.refresca_etapa(pois);
+                    }
+                );
+            });
+    }
 
     if (edicion == 'S') {
         salir();
@@ -34,7 +59,8 @@ function add() {
 }
 
 
-async function set_valores_formulario(indice) {
+async function set_valores_formulario(indice_poi) {
+    indice = indice_poi;
     var nombre_etapa = window.parent.get_nombre_etapa();
     console.log('ne,nombre_etapa', nombre_etapa);
     await db_get_poi(nombre_etapa, indice).then(

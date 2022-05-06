@@ -1,4 +1,5 @@
 var pois;
+var indice = 0;
 
 function compara_distancia(a, b) {
     if (parseFloat(a.distancia) < parseFloat(b.distancia)) {
@@ -104,21 +105,26 @@ function recalcula(pois) {
 async function cargar_etapa(pois) {
     pois = recalcula(pois);
     muestra(pois);
-}
 
-/************************ funciones de insercion , modificacion y borrado  */
-/************************ funciones de insercion , modificacion y borrado  */
-/************************ funciones de insercion , modificacion y borrado  */
-function get_new_indice(incremento) {
-    var indice = 0;
+    console.log('get new indice', pois);
+
     $.each(pois, function (key, value) {
         if (value._indice > indice) {
             indice = value._indice;
         }
     });
 
+    console.log('valor indice', indice);
+}
+
+function get_new_indice(incremento) {
     return indice + 1 + incremento;
 }
+
+
+/************************ funciones de insercion , modificacion y borrado  */
+/************************ funciones de insercion , modificacion y borrado  */
+/************************ funciones de insercion , modificacion y borrado  */
 
 
 /* add a new poi to lista */
@@ -161,43 +167,13 @@ function borra(indice, indice_de_referencia) {
         });
 }
 
-
-/* function carga(fichero) {
-    var distancia_anterior = 0; var lista = [];
-    pois = $.getJSON(fichero, function (data) {
-        var i = 0;
-        $.each(data, function (key, value) {
-            if (i > 0) {
-                var valor_distancia_anterior = value.distancia - distancia_anterior;
-            }
-
-            lista[i] = {};
-            lista[i]._indice = value._indice;
-            lista[i].nombre_poi = value.nombre_poi;
-            lista[i].distancia = parseFloat(value.distancia).toFixed(1);
-            if (i > 0) {
-                lista[i - 1].intervalo = valor_distancia_anterior.toFixed(1);
-            }
-            lista[i].notas = value.notas;
-            lista[i].atributos = value.atributos;
-            lista[i].punto_referencia = value.punto_referencia;
-
-            distancia_anterior = parseFloat(value.distancia);
-
-            i++;
-        })
-    }).then(function (data) {
-        return lista;
-    });
-
-    return pois;
+function modifica_nombre_poi(indice, nombre_poi) {
+    db_modifica_campo(indice, 'nombre_poi', nombre_poi).then(
+        function () {
+            console.log('modificado modifica_nombre_poi');
+        }
+    );
 }
- */
-
-
-/********************* funciones no revisadas */
-/********************* funciones no revisadas */
-/********************* funciones no revisadas */
 
 function set_nombre(o, indice) {
     var resp = prompt("Texto", o.innerHTML);
@@ -210,10 +186,7 @@ function set_nombre(o, indice) {
 
     o.innerHTML = resp;
 
-    db_modifica(indice, 'nombre_poi', resp).then(
-        function () {
-        }
-    );
+    modifica_nombre_poi(indice, resp);
 }
 
 function set_notas(o, indice) {
@@ -223,7 +196,7 @@ function set_notas(o, indice) {
 
     o.innerHTML = resp;
 
-    db_modifica(indice, 'notas', resp).then(
+    db_modifica_campo(indice, 'notas', resp).then(
         function () {
         }
     );
@@ -244,7 +217,7 @@ function set_distancia(o, indice) {
 
     var nombre_etapa = window.parent.get_nombre_etapa();
 
-    db_modifica(indice, 'distancia', resp).then(
+    db_modifica_campo(indice, 'distancia', resp).then(
         function () {
             db_get_all_pois(nombre_etapa).then(
                 function (pois) {
@@ -256,25 +229,23 @@ function set_distancia(o, indice) {
 }
 
 
-/* function guardar() {
-    var a = document.createElement("a");
-    var file = new Blob([JSON.stringify(pois, null, 2)], { type: 'text/plain' });
-    a.href = URL.createObjectURL(file);
-    a.download = nom_fichero;
-    a.click();
-}
- */
-
-
-
 function edita_registro(indice) {
     window.parent.edita_registro(indice);
 }
+
+function get_pois() {
+    return pois;
+}
+
+/********************* funciones no revisadas */
+/********************* funciones no revisadas */
+/********************* funciones no revisadas */
 
 
 function _get_punto(indice) {
     var punto = null;
     $.each(pois, function (key, value) {
+        console.log(value._indice + ' ' + indice);
         if (value._indice == indice) {
             punto = pois[key];
         }
@@ -283,12 +254,10 @@ function _get_punto(indice) {
     return punto;
 }
 
+/* 
 function get_punto(indice) {
     window.parent.envia_punto(_get_punto(indice));
-}
+} */
 
-function get_pois() {
-    return pois;
-}
 
 
