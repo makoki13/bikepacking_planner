@@ -106,7 +106,7 @@ async function cargar_etapa(pois) {
     pois = recalcula(pois);
     muestra(pois);
 
-    console.log('get new indice', pois);
+    console.log('cargar etapa', pois);
 
     $.each(pois, function (key, value) {
         if (value._indice > indice) {
@@ -145,11 +145,14 @@ function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia)
 function borra(indice, indice_de_referencia) {
     var nombre_etapa = window.parent.get_nombre_etapa();
 
+    console.log('borra', indice, indice_de_referencia);
+
     db_delete(indice).then(
         function () {
-            console.log('borrado', indice, indice_de_referencia);
+            console.log('borrado primer punto', indice);
 
             if (indice != indice_de_referencia) {
+                console.log('borrado segundo punto', indice_de_referencia);
                 db_delete(indice_de_referencia).then(
                     function () {
                         db_get_all_pois(nombre_etapa).then(
@@ -160,6 +163,7 @@ function borra(indice, indice_de_referencia) {
                     });
             }
             else {
+                console.log('borrado unico punto', indice);
                 db_get_all_pois(nombre_etapa).then(
                     function (pois) {
                         cargar_etapa(pois);

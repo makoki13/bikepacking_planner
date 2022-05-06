@@ -36,7 +36,8 @@ function cargar_etapa() {
 
 // desde nuevo_poi.js
 function refresca_etapa(pois) {
-    document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois);
+    db_get_all_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
+    //document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois);
 }
 
 
@@ -68,6 +69,13 @@ function desbloquea_insertar_registro() {
     document.getElementById('bloqueo').style.visibility = 'hidden';
     document.getElementById('nuevo_poi').style.visibility = 'hidden';
     document.getElementById('nuevo_poi_sombra').style.visibility = 'hidden';
+}
+
+function insertar_ascenso() {
+    document.getElementById('frmNuevaVersion').src = 'nuevo_climb.html';
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
 }
 
 function get_new_indice(incremento = 0) {
