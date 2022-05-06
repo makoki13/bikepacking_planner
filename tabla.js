@@ -147,6 +147,8 @@ function borra(indice, indice_de_referencia) {
 
     db_delete(indice).then(
         function () {
+            console.log('borrado', indice, indice_de_referencia);
+
             if (indice != indice_de_referencia) {
                 db_delete(indice_de_referencia).then(
                     function () {
