@@ -1,8 +1,8 @@
 
 if (!db) {
     var db = new Dexie('bikepacking');
-    db.version(9).stores({
-        pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,[id+nombre_etapa]'
+    db.version(10).stores({
+        pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa]'
     });
 
     var _nombre_etapa;
@@ -37,9 +37,10 @@ async function db_crea_prueba(nombre_etapa) {
     console.log(db);
 }
 
-async function db_add(id, nombre, distancia, notas, atributos, punto_referencia) {
+async function db_add(id, nombre, distancia, notas, atributos, punto_referencia, tipo_poi) {
 
-    console.log('db_add(id,', id, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos, ' punto_referencia ', punto_referencia, ')',);
+    console.log('db_add(id,', id, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos,
+        ' punto_referencia ', punto_referencia, ' tipo poi', tipo_poi, ')');
 
     // Interact With Database
     db.transaction('rw', db.pruebas, function () {
@@ -51,7 +52,8 @@ async function db_add(id, nombre, distancia, notas, atributos, punto_referencia)
             distancia: distancia,
             notas: notas,
             atributos: atributos,
-            punto_referencia: punto_referencia
+            punto_referencia: punto_referencia,
+            tipo_poi: tipo_poi
         };
         db.pruebas.add(insert_object);
     }).catch(function (err) {

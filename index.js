@@ -78,6 +78,15 @@ function insertar_ascenso() {
     document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
 }
 
+function edita_ascenso(indice) {
+    console.log('edita_ascenso', indice);
+    document.getElementById('frmNuevaVersion').src = 'nuevo_climb.html?edicion=S&indice=' + indice;
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
+
+
 function get_new_indice(incremento = 0) {
     return document.getElementById('frm_tabla').contentWindow.get_new_indice(incremento);
 }

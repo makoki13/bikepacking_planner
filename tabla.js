@@ -37,6 +37,9 @@ function muestra(pois) {
             fila += '<td>&nbsp;</td>';
         }
 
+        // solo para control
+        value.notas = 'Tipo: ' + value.tipo_poi + ' indice: ' + value._indice + 'ref:' + value.punto_referencia;
+
         if (typeof value.notas !== "undefined") {
             fila += '<td class="notas" onclick="set_notas(this,' + value._indice + ');">' + value.notas + '</td>';
         }
@@ -44,16 +47,42 @@ function muestra(pois) {
             fila += '<td class="notas" onclick="set_notas(this,' + value._indice + ');">&nbsp</td>';
         }
 
+        var evento_click = '';
+        var tipo_poi = parseInt(value.tipo_poi);
+        switch (tipo_poi) {
+            case 1:
+                console.log('tipo poi---', value.tipo_poi);
+                evento_click = 'edita_registro(' + value._indice + ');';
+                break;
+            case 2:
+                console.log('tipo poi---', value.tipo_poi);
+                evento_click = 'edita_subida(' + value._indice + ');';
+                break;
+            case 3:
+                console.log('tipo poi---', value.tipo_poi);
+                evento_click = 'edita_bajada(' + value._indice + ');';
+                break;
+            case 4:
+                console.log('tipo poi---', value.tipo_poi);
+                evento_click = 'edita_cp(' + value._indice + ');';
+                break;
+            default:
+                console.log('tipo poi--- (unk)', value.tipo_poi);
+                break;
+        }
+
         if (typeof value.atributos !== "undefined") {
             var clase_cero = '';
             if (value.atributos.length == 0) {
                 clase_cero = 'cero';
             }
-            fila += '<td class="atributos ' + clase_cero + '" onclick="edita_registro(' + value._indice + ')">' + value.atributos.length + '</td>';
+            fila += '<td class="atributos ' + clase_cero + '" onclick="' + evento_click + '">' + value.atributos.length + '</td>';
         }
         else {
-            fila += '<td class="atributos" onclick="edita_registro(this,' + value._indice + ')">&nbsp</td>';
+            fila += '<td class="atributos" onclick="' + evento_click + '">&nbsp</td>';
         }
+
+        console.log('fila', fila);
 
         var titulo = '';
         if (value.punto_referencia) {
@@ -93,6 +122,7 @@ function recalcula(pois) {
 
         lista[i].atributos = value.atributos;
         lista[i].punto_referencia = value.punto_referencia;
+        lista[i].tipo_poi = value.tipo_poi;
 
         distancia_anterior = parseFloat(value.distancia);
 
@@ -128,11 +158,12 @@ function get_new_indice(incremento) {
 
 
 /* add a new poi to lista */
-function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
+/* function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
     pois.append({ _indice: get_new_indice(1), nombre_poi, distancia, notas, atributos, punto_referencia });
 }
+ */
 
-function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia) {
+/* function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia) {
     pois.push({ _indice, nombre_poi, distancia, notas, atributos, punto_referencia });
 
     pois.sort(compara_distancia);
@@ -141,6 +172,7 @@ function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia)
 
     muestra(pois);
 }
+ */
 
 function borra(indice, indice_de_referencia) {
     var nombre_etapa = window.parent.get_nombre_etapa();
@@ -234,9 +266,12 @@ function set_distancia(o, indice) {
     );
 }
 
-
 function edita_registro(indice) {
     window.parent.edita_registro(indice);
+}
+
+function edita_subida(indice) {
+    window.parent.edita_ascenso(indice);
 }
 
 function get_pois() {

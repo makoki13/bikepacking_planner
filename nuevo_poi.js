@@ -22,6 +22,7 @@ function add() {
                 db_get_all_pois(nombre_etapa).then(
                     function (pois) {
                         window.parent.refresca_etapa(pois);
+                        salir();
                     }
                 );
             });
@@ -36,7 +37,7 @@ function add() {
         var lista_atributos = $(".chosen-select").val();
 
         //window.parent.add(indice, punto, distancia, comentarios, lista_atributos, indice);
-        db_add(indice, nombre, distancia, comentarios, lista_atributos, indice).then(
+        db_add(indice, nombre, distancia, comentarios, lista_atributos, indice, 1).then(
             function () {
                 db_get_all_pois(nombre_etapa).then(
                     function (pois) {

@@ -52,13 +52,13 @@ async function add() {
         var comentarios = 'D: ' + distancia + 'Km. * T: ' + tiempo + " * F: " + fiets + " * M: " + media + "% * Max: " + max_porc + "%";
         var lista_atributos = ['inicio_subida'];
         indice_fin = window.parent.get_new_indice(1);
-        db_add(indice, nombre, inicio, comentarios, lista_atributos, indice_fin).then(
+        db_add(indice, nombre, inicio, comentarios, lista_atributos, indice_fin, 2).then(
             function () {
                 /* añadimos el punto final */
                 var nombre = "Fin " + punto;
                 var comentarios = document.getElementById('comentarios').value;
                 var lista_atributos = ['fin_subida'];
-                db_add(indice_fin, nombre, fin, comentarios, lista_atributos, indice).then(
+                db_add(indice_fin, nombre, fin, comentarios, lista_atributos, indice, 2).then(
                     function () {
                         console.log('add', 'indice', indice, 'segundo indice', indice_fin);
                         db_get_all_pois(nombre_etapa).then(
@@ -131,7 +131,7 @@ async function add() {
 }
 
 
-function set_valores_formulario(nombre, inicio, fin, tiempo, fiets, media, max_porc, notas) {
+/* function set_valores_formulario(nombre, inicio, fin, tiempo, fiets, media, max_porc, notas) {
     document.getElementById('nombre').value = nombre;
     document.getElementById('inicio').value = inicio;
     document.getElementById('fin').value = fin;
@@ -141,4 +141,37 @@ function set_valores_formulario(nombre, inicio, fin, tiempo, fiets, media, max_p
     document.getElementById('max_porc').value = max_porc;
 
     document.getElementById('comentarios').value = notas;
+}
+ */
+
+async function set_valores_formulario(indice_poi) {
+    indice = indice_poi;
+    var nombre_etapa = window.parent.get_nombre_etapa();
+    console.log('ne,nombre_etapa', nombre_etapa);
+    await db_get_poi(nombre_etapa, indice).then(
+        function (poi) {
+            /** temporal  */
+            inicio = 1;
+            fin = 2;
+            tiempo = 3;
+            fiets = 4;
+            media = 5;
+            max_porc = 6;
+
+            console.log('poi', poi);
+            document.getElementById('nombre').value = poi.nombre_poi;
+
+            document.getElementById('inicio').value = inicio;
+            document.getElementById('fin').value = fin;
+            document.getElementById('tiempo').value = tiempo;
+            document.getElementById('fiets').value = fiets;
+            document.getElementById('media').value = media;
+            document.getElementById('max_porc').value = max_porc;
+
+            //document.getElementById('distancia').value = poi.distancia;
+            document.getElementById('comentarios').value = poi.notas;
+            $(".chosen-select").val(poi.atributos);
+            $(".chosen-select").trigger("chosen:updated");
+        }
+    );
 }

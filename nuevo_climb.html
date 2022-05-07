@@ -26,9 +26,9 @@
             edicion = params.get("edicion");
             if (edicion == 'S') {
                 indice = params.get("indice");
-                window.parent.get_punto(indice);
-
-                document.getElementById('btn_accion').innerHTML = 'EDIT';
+                set_valores_formulario(indice).then(function () {
+                    document.getElementById('btn_accion').innerHTML = 'EDIT';
+                });
             }
             else {
                 indice = window.parent.get_new_indice()
