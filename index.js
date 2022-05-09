@@ -86,6 +86,21 @@ function edita_ascenso(indice) {
     document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
 }
 
+function insertar_descenso() {
+    document.getElementById('frmNuevaVersion').src = 'nueva_bajada.html';
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
+
+function edita_descenso(indice) {
+    console.log('edita_descenso', indice);
+    document.getElementById('frmNuevaVersion').src = 'nueva_bajada.html?edicion=S&indice=' + indice;
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
+
 
 function get_new_indice(incremento = 0) {
     return document.getElementById('frm_tabla').contentWindow.get_new_indice(incremento);

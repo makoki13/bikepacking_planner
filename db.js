@@ -1,11 +1,10 @@
+var _nombre_etapa;
 
 if (!db) {
     var db = new Dexie('bikepacking');
-    db.version(10).stores({
-        pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa]'
+    db.version(11).stores({
+        pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
     });
-
-    var _nombre_etapa;
 
     //console.log('db load', db);
 }
@@ -21,7 +20,7 @@ async function db_get_poi(nombre_etapa, indice) {
     var valor;
     var pois = await db_get_all_pois(nombre_etapa);
     pois.forEach(element => {
-        if (element.id == indice) {
+        if (element.id_punto == indice) {
             valor = element;
         }
     });
@@ -37,9 +36,9 @@ async function db_crea_prueba(nombre_etapa) {
     console.log(db);
 }
 
-async function db_add(id, nombre, distancia, notas, atributos, punto_referencia, tipo_poi) {
+async function db_add(id_punto, nombre, distancia, notas, atributos, punto_referencia, tipo_poi) {
 
-    console.log('db_add(id,', id, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos,
+    console.log('db_add(id,', id_punto, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos,
         ' punto_referencia ', punto_referencia, ' tipo poi', tipo_poi, ')');
 
     // Interact With Database
@@ -47,7 +46,7 @@ async function db_add(id, nombre, distancia, notas, atributos, punto_referencia,
         // Let's add some data to db:
         insert_object = {
             nombre_etapa: _nombre_etapa,
-            id_punto: id,
+            id_punto: id_punto,
             nombre_poi: nombre,
             distancia: distancia,
             notas: notas,
@@ -63,9 +62,11 @@ async function db_add(id, nombre, distancia, notas, atributos, punto_referencia,
     });
 }
 
-async function db_delete(id) {
-    console.log('db_delete(id)');
-    return await db.pruebas.delete(id);
+async function db_delete(nombre_etapa, id_punto) {
+    _nombre_etapa = nombre_etapa;
+    console.log('db_delete(id)', id_punto, 'nombre_etapa', nombre_etapa);
+    //return await db.pruebas.delete(id);
+    return await db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), nombre_etapa]).delete();
 }
 
 async function db_modifica_campo(id, campo, valor) {
@@ -94,11 +95,12 @@ async function db_modifica_campo(id, campo, valor) {
 }
 
 //Pasar a interfaces
-async function db_modifica_registro(id, valor_nombre_poi, distancia, notas, atributos) {
-    console.log('db_modifica_registro', 'id', id, 'nombre_poi', valor_nombre_poi, 'dist', distancia, 'notas', notas, 'atr', atributos);
+async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas, atributos) {
+    console.log('db_modifica_registro', 'id', id_punto, 'nombre_poi', valor_nombre_poi, 'dist', distancia, 'notas', notas, 'atr', atributos);
+    console.log('nombre_etapa', _nombre_etapa);
 
     db.transaction('rw', db.pruebas, async function () {
-        await db.pruebas.where('[id+nombre_etapa]').equals([parseInt(id), _nombre_etapa]).modify({
+        await db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), _nombre_etapa]).modify({
             nombre_poi: valor_nombre_poi,
             distancia: distancia,
             notas: notas,
