@@ -38,7 +38,7 @@ function muestra(pois) {
         }
 
         // solo para control
-        value.notas = 'Tipo: ' + value.tipo_poi + ' indice: ' + value._indice + 'ref:' + value.punto_referencia;
+        //value.notas = 'Tipo: ' + value.tipo_poi + ' indice: ' + value._indice + 'ref:' + value.punto_referencia;
 
         if (typeof value.notas !== "undefined") {
             fila += '<td class="notas" onclick="set_notas(this,' + value._indice + ');">' + value.notas + '</td>';

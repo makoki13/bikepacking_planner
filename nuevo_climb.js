@@ -6,10 +6,22 @@ var fiets = 0;
 var media = 0;
 var max_porc = 0;
 var comentarios = '';
+
 var indice = 0;
+var indice_poi_asociado = 0;
 
 function salir() {
     window.parent.desbloquea_insertar_registro();
+}
+
+function removeFirstWord(str) {
+    const indexOfSpace = str.indexOf(' ');
+
+    if (indexOfSpace === -1) {
+        return '';
+    }
+
+    return str.substring(indexOfSpace + 1);
 }
 
 async function add() {
@@ -28,7 +40,39 @@ async function add() {
     var max_porc = document.getElementById('max_porc').value;
 
     if (edicion == 'S') {
-        console.log('edicion', 'indice', indice);
+        var nombre = "Inicio " + punto;
+        var comentarios = 'D: ' + distancia + 'Km. * T: ' + tiempo + " * F: " + fiets + " * M: " + media + "% * Max: " + max_porc + "%";
+        var lista_atributos = ['inicio_subida'];
+
+        db_modifica_registro(indice, nombre, inicio, comentarios, lista_atributos).then(
+            function () {
+                var nombre_fin = "Fin " + punto;
+                var comentarios_fin = document.getElementById('comentarios').value;
+                var lista_atributos_fin = ['fin_subida'];
+                console.log('indice asociado', indice_poi_asociado);
+                db_modifica_registro(indice_poi_asociado, nombre_fin, fin, comentarios_fin, lista_atributos_fin).then(
+                    function () {
+                        db_get_all_pois(nombre_etapa).then(
+                            function (pois) {
+                                window.parent.refresca_etapa(pois);
+                                salir();
+                            }
+                        );
+                    }
+                );
+            });
+
+        return;
+
+        db_modifica_registro(indice, punto, distancia, comentarios, lista_atributos).then(
+            function () {
+                db_get_all_pois(nombre_etapa).then(
+                    function (pois) {
+                        window.parent.refresca_etapa(pois);
+                        salir();
+                    }
+                );
+            });
 
         // pendiente la modificacion de una subida
         /* db_modifica_registro(indice, punto, inicio, comentarios, lista_atributos).then(
@@ -52,6 +96,7 @@ async function add() {
         var comentarios = 'D: ' + distancia + 'Km. * T: ' + tiempo + " * F: " + fiets + " * M: " + media + "% * Max: " + max_porc + "%";
         var lista_atributos = ['inicio_subida'];
         indice_fin = window.parent.get_new_indice(1);
+        indice_poi_asociado = indice_fin;
         db_add(indice, nombre, inicio, comentarios, lista_atributos, indice_fin, 2).then(
             function () {
                 /* añadimos el punto final */
@@ -146,32 +191,42 @@ async function add() {
 
 async function set_valores_formulario(indice_poi) {
     indice = indice_poi;
+
     var nombre_etapa = window.parent.get_nombre_etapa();
     console.log('ne,nombre_etapa', nombre_etapa);
     await db_get_poi(nombre_etapa, indice).then(
-        function (poi) {
+        async function (poi) {
+            indice_poi_asociado = poi.punto_referencia;
+            await db_get_poi(nombre_etapa, indice_poi_asociado).then(
+                function (poi_asociado) {
+                    inicio = poi.distancia;
+                    fin = poi_asociado.distancia;
+                    var cadenas = poi.notas.split('*');
+                    console.log('cadenas', cadenas);
+                    tiempo = cadenas[1].trim().split(' ')[1];
+
+                    fiets = cadenas[2].trim().split(' ')[1];
+                    media = cadenas[3].trim().split(' ')[1].slice(0, -1);
+                    max_porc = cadenas[4].trim().split(' ')[1].slice(0, -1);
+
+                    console.log('poi', poi);
+                    document.getElementById('nombre').value = removeFirstWord(poi.nombre_poi);
+
+                    document.getElementById('inicio').value = inicio;
+                    document.getElementById('fin').value = fin;
+                    document.getElementById('tiempo').value = tiempo;
+                    document.getElementById('fiets').value = fiets;
+                    document.getElementById('media').value = media;
+                    document.getElementById('max_porc').value = max_porc;
+
+                    //document.getElementById('distancia').value = poi.distancia;
+                    document.getElementById('comentarios').value = poi_asociado.notas;
+                    $(".chosen-select").val(poi.atributos);
+                    $(".chosen-select").trigger("chosen:updated");
+                }
+            );
             /** temporal  */
-            inicio = 1;
-            fin = 2;
-            tiempo = 3;
-            fiets = 4;
-            media = 5;
-            max_porc = 6;
 
-            console.log('poi', poi);
-            document.getElementById('nombre').value = poi.nombre_poi;
-
-            document.getElementById('inicio').value = inicio;
-            document.getElementById('fin').value = fin;
-            document.getElementById('tiempo').value = tiempo;
-            document.getElementById('fiets').value = fiets;
-            document.getElementById('media').value = media;
-            document.getElementById('max_porc').value = max_porc;
-
-            //document.getElementById('distancia').value = poi.distancia;
-            document.getElementById('comentarios').value = poi.notas;
-            $(".chosen-select").val(poi.atributos);
-            $(".chosen-select").trigger("chosen:updated");
         }
     );
 }
