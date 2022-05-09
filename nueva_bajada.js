@@ -24,7 +24,7 @@ function removeFirstWord(str) {
 }
 
 
-async function add() {
+async function add_bajada() {
     var nombre_etapa = window.parent.get_nombre_etapa();
 
     var punto = document.getElementById('nombre').value;
@@ -143,7 +143,7 @@ async function set_valores_formulario(indice_poi) {
                     document.getElementById('media').value = media;
                     document.getElementById('max_porc').value = max_porc;
                     document.getElementById('comentarios').value = notas;
-                    
+
                     $(".chosen-select").val(poi.atributos);
                     $(".chosen-select").trigger("chosen:updated");
                 }
