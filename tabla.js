@@ -65,6 +65,7 @@ function muestra(pois) {
                 evento_click = 'edita_bajada(' + value._indice + ');';
                 break;
             case 4:
+            case 104:
                 //console.log('tipo poi---', value.tipo_poi);
                 evento_click = 'edita_cp(' + value._indice + ');';
                 break;

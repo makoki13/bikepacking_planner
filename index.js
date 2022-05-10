@@ -101,6 +101,20 @@ function edita_descenso(indice) {
     document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
 }
 
+function insertar_cp() {
+    document.getElementById('frmNuevaVersion').src = 'nuevo_cp.html';
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
+
+function edita_cp(indice) {
+    console.log('edita_cp', indice);
+    document.getElementById('frmNuevaVersion').src = 'nuevo_cp.html?edicion=S&indice=' + indice;
+    document.getElementById('bloqueo').style.visibility = 'visible';
+    document.getElementById('nuevo_poi').style.visibility = 'visible';
+    document.getElementById('nuevo_poi_sombra').style.visibility = 'visible';
+}
 
 function get_new_indice(incremento = 0) {
     return document.getElementById('frm_tabla').contentWindow.get_new_indice(incremento);
