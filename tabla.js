@@ -281,6 +281,10 @@ function edita_bajada(indice) {
     window.parent.edita_descenso(indice);
 }
 
+function edita_cp(indice) {
+    window.parent.edita_cp(indice);
+}
+
 function get_pois() {
     return pois;
 }

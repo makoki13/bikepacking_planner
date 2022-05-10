@@ -35,6 +35,7 @@ function add_cp() {
 
     if (edicion == 'S') {
         var nombre = "Inicio " + punto;
+        console.log('nombre', nombre);
         var comentarios = 'D: ' + distancia + 'Km. * Asc: ' + ascension + " * M: " + media + "%"
         var lista_atributos = ['inicio_subida'];
 
@@ -97,7 +98,7 @@ function add_cp() {
 }
 
 
-function set_valores_formulario(nombre, inicio, distancia, ascension, media, notas) {
+async function set_valores_formulario(indice_poi) {
     indice = indice_poi;
 
     var nombre_etapa = window.parent.get_nombre_etapa();
@@ -122,11 +123,10 @@ function set_valores_formulario(nombre, inicio, distancia, ascension, media, not
                     }
 
                     console.log('cadenas', cadenas);
-                    distancia = cadenas[1].trim().split(' ')[1];
-                    ascension = cadenas[2].trim().split(' ')[1];
-                    media = cadenas[3].trim().split(' ')[1].slice(0, -1);
+                    distancia = cadenas[0].trim().split(' ')[1].slice(0, -3);
+                    ascension = cadenas[1].trim().split(' ')[1];
+                    media = cadenas[2].trim().split(' ')[1].slice(0, -1);
 
-                    document.getElementById('nombre').value = nombre;
                     document.getElementById('inicio').value = inicio;
                     document.getElementById('distancia').value = distancia;
                     document.getElementById('ascension').value = ascension;
