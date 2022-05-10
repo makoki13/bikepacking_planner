@@ -41,15 +41,14 @@ async function add() {
 
     if (edicion == 'S') {
         var nombre = "Inicio " + punto;
+        var nombre_fin = "Fin " + punto;
         var comentarios = 'D: ' + distancia + 'Km. * T: ' + tiempo + " * F: " + fiets + " * M: " + media + "% * Max: " + max_porc + "%";
+        var comentarios_fin = document.getElementById('comentarios_subida').value;
         var lista_atributos = ['inicio_subida'];
+        var lista_atributos_fin = ['fin_subida'];
 
         db_modifica_registro(indice, nombre, inicio, comentarios, lista_atributos).then(
             function () {
-                var nombre_fin = "Fin " + punto;
-                var comentarios_fin = document.getElementById('comentarios_subida').value;
-                var lista_atributos_fin = ['fin_subida'];
-                console.log('indice asociado', indice_poi_asociado);
                 db_modifica_registro(indice_poi_asociado, nombre_fin, fin, comentarios_fin, lista_atributos_fin).then(
                     function () {
                         db_get_all_pois(nombre_etapa).then(
@@ -69,23 +68,20 @@ async function add() {
         indice = window.parent.get_new_indice();
 
         var nombre = "Inicio " + punto;
+        var nombre_fin = "Fin " + punto;
         var comentarios = 'D: ' + distancia + 'Km. * T: ' + tiempo + " * F: " + fiets + " * M: " + media + "% * Max: " + max_porc + "%";
         var lista_atributos = ['inicio_subida'];
+        var lista_atributos_fin = ['fin_subida'];
+        var comentarios_punto = document.getElementById('comentarios_subida').value;
         indice_fin = window.parent.get_new_indice(1);
         indice_poi_asociado = indice_fin;
         db_add(indice, nombre, inicio, comentarios, lista_atributos, indice_fin, 2).then(
             function () {
                 /* añadimos el punto final */
-                var nombre = "Fin " + punto;
-                var comentarios = document.getElementById('comentarios_subida').value;
-                console.log('comentarios', comentarios);
-                var lista_atributos = ['fin_subida'];
-                db_add(indice_fin, nombre, fin, comentarios, lista_atributos, indice, 102).then(
+                db_add(indice_fin, nombre_fin, fin, comentarios_punto, lista_atributos_fin, indice, 102).then(
                     function () {
-                        console.log('add', 'indice', indice, 'segundo indice', indice_fin);
                         db_get_all_pois(nombre_etapa).then(
                             function (pois) {
-                                console.log('nombre etapa', nombre_etapa, 'refresco pois', pois);
                                 window.parent.refresca_etapa(pois);
                             }
                         );

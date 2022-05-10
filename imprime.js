@@ -17,8 +17,7 @@ function imprime_pdf() {
 
     doc.setFontSize(8);
 
-    var pois = document.getElementById('frm_tabla').contentWindow.get_pois();
-    if (pois) {
+    db_get_all_pois(nombre_etapa).then(function (pois) {
         var j = inicio_altura; var fila = 1;
         var estado = estado_actual = 0; //0: neutral, 1: subiendo, 2: bajando
         $.each(pois, function (key, value) {
@@ -122,9 +121,8 @@ function imprime_pdf() {
                 fila = 1;
             }
         });
-    }
+    });
 
-
-    var nombre_fichero = get_nombre_fichero();
-    doc.save(nombre_fichero.replace('json', 'pdf'));
+    var nombre_fichero = get_nombre_etapa();
+    doc.save(nombre_fichero + 'pdf');
 }
