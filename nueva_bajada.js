@@ -46,7 +46,7 @@ async function add_bajada() {
         db_modifica_registro(indice, nombre, inicio, comentarios, lista_atributos).then(
             function () {
                 var nombre_fin = "Fin " + punto;
-                var comentarios_fin = document.getElementById('comentarios').value;
+                var comentarios_fin = document.getElementById('comentarios_bajada').value;
                 var lista_atributos_fin = ['fin_bajada'];
                 console.log('indice asociado', indice_poi_asociado);
                 db_modifica_registro(indice_poi_asociado, nombre_fin, fin, comentarios_fin, lista_atributos_fin).then(
@@ -76,7 +76,8 @@ async function add_bajada() {
             function () {
                 /* añadimos el punto final */
                 var nombre = "Fin " + punto;
-                var comentarios = document.getElementById('comentarios').value;
+                var comentarios = document.getElementById('comentarios_bajada').value;
+                console.log('comentarios', comentarios);
                 var lista_atributos = ['fin_bajada'];
                 db_add(indice_fin, nombre, fin, comentarios, lista_atributos, indice, 103).then(
                     function () {
@@ -97,7 +98,7 @@ async function add_bajada() {
         document.getElementById('media').value = '';
         document.getElementById('max_porc').value = '';
 
-        document.getElementById('comentarios').value = '';
+        document.getElementById('comentarios_bajada').value = '';
 
         document.getElementById('nombre').focus();
     }
@@ -142,7 +143,7 @@ async function set_valores_formulario(indice_poi) {
                     document.getElementById('tiempo').value = tiempo;
                     document.getElementById('media').value = media;
                     document.getElementById('max_porc').value = max_porc;
-                    document.getElementById('comentarios').value = notas;
+                    document.getElementById('comentarios_bajada').value = notas;
 
                     $(".chosen-select").val(poi.atributos);
                     $(".chosen-select").trigger("chosen:updated");

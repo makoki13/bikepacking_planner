@@ -42,7 +42,7 @@ function add_cp() {
         db_modifica_registro(indice, nombre, inicio, comentarios, lista_atributos).then(
             function () {
                 var nombre_fin = "Fin " + punto;
-                var comentarios_fin = document.getElementById('comentarios').value;
+                var comentarios_fin = document.getElementById('comentarios_cp').value;
                 var lista_atributos_fin = ['fin_subida'];
                 console.log('indice asociado', indice_poi_asociado);
                 db_modifica_registro(indice_poi_asociado, nombre_fin, fin, comentarios_fin, lista_atributos_fin).then(
@@ -73,7 +73,7 @@ function add_cp() {
             function () {
                 /* añadimos el punto final */
                 var nombre = "Fin " + punto;
-                var comentarios = document.getElementById('comentarios').value;
+                var comentarios = document.getElementById('comentarios_cp').value;
                 var lista_atributos = ['fin_subida'];
                 db_add(indice_fin, nombre, fin, comentarios, lista_atributos, indice, 104).then(
                     function () {
@@ -92,7 +92,7 @@ function add_cp() {
         document.getElementById('distancia').value = '';
         document.getElementById('ascension').value = '';
         document.getElementById('media').value = '';
-        document.getElementById('comentarios').value = '';
+        document.getElementById('comentarios_cp').value = '';
         document.getElementById('nombre').focus();
     }
 }
@@ -131,7 +131,7 @@ async function set_valores_formulario(indice_poi) {
                     document.getElementById('distancia').value = distancia;
                     document.getElementById('ascension').value = ascension;
                     document.getElementById('media').value = media;
-                    document.getElementById('comentarios').value = notas;
+                    document.getElementById('comentarios_cp').value = notas;
 
                     $(".chosen-select").val(poi.atributos);
                     $(".chosen-select").trigger("chosen:updated");
