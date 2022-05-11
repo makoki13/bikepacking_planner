@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "file-saver": "^2.0.5",
+        "http-server": "^14.1.0",
         "jspdf": "^2.5.1"
     },
     "type": "module"
