@@ -3,6 +3,12 @@ var distancia = 0;
 var notas = '';
 var indice = 0;
 
+function get_nombre_tour() {
+    nombre = window.parent.get_nombre_tour();
+    console.log(nombre);
+    return nombre;
+}
+
 function salir() {
     window.parent.desbloquea_insertar_registro();
 }

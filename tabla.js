@@ -154,6 +154,12 @@ function get_new_indice(incremento) {
     return indice + 1 + incremento;
 }
 
+function get_nombre_tour() {
+    nombre = window.parent.get_nombre_tour();
+    console.log(nombre);
+    return nombre;
+}
+
 
 /************************ funciones de insercion , modificacion y borrado  */
 /************************ funciones de insercion , modificacion y borrado  */

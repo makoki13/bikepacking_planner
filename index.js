@@ -1,4 +1,37 @@
+/** Tours */ /** Tours */ /** Tours */ /** Tours */ /** Tours */
+function crea_tour() {
+    var resp = prompt("Tour name: ");
+    if (!resp) return;
+
+    db_crea_tour(resp).then(function () {
+        console.log('db', db);
+        document.getElementById("nombre_tour").innerHTML = resp;
+        muestra_botones_stage();
+    });
+}
+
+function cargar_tour() {
+    alert("Tour cargado");
+    muestra_botones_stage();
+}
+
+function get_nombre_tour() {
+    return document.getElementById("nombre_tour").innerHTML;
+}
+
+/** Stages */ /** Stages */ /** Stages */ /** Stages */ /** Stages */
+
 var nombre_etapa = '';
+
+function muestra_botones_stage() {
+    botones = document.getElementsByClassName('btn_prj');
+    for (key in botones) {
+        if (botones[key].id === undefined) continue;
+        console.log(botones[key].id);
+        botones[key].style.visibility = 'visible';
+    }
+    //botones.style.display = 'block';
+}
 
 function get_nombre_etapa() {
     return nombre_etapa;
@@ -15,9 +48,25 @@ async function crea_etapa() {
     document.getElementById("nombre_stage").innerHTML = nombre_etapa;
 
     db_crea_prueba(nombre_etapa);
+
+    cargar_etapa_new(nombre_etapa)
 }
 
-function cargar_etapa() {
+function cargar_etapa_new(nombre_nueva_etapa) {
+    nombre_etapa = nombre_nueva_etapa;
+    document.getElementById("nombre_stage").innerHTML = nombre_etapa;
+
+    db_get_all_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
+
+    document.getElementById('btn_course_climb').style.visibility = 'visible';
+    document.getElementById('btn_course_desc').style.visibility = 'visible';
+    document.getElementById('btn_course_cp').style.visibility = 'visible';
+    document.getElementById('btn_course_add').style.visibility = 'visible';
+    document.getElementById('btn_course_save').style.visibility = 'visible';
+    document.getElementById('btn_course_imprime').style.visibility = 'visible';
+}
+
+function cargar_etapa_old() {
     var resp = prompt("Stage name: ");
     if (!resp) return;
 
@@ -32,6 +81,10 @@ function cargar_etapa() {
     document.getElementById('btn_course_add').style.visibility = 'visible';
     document.getElementById('btn_course_save').style.visibility = 'visible';
     document.getElementById('btn_course_imprime').style.visibility = 'visible';
+}
+
+function cargar_etapa_previo() {
+    document.getElementById('frm_tabla').src = "lista_stages.html";
 }
 
 // desde nuevo_poi.js

@@ -1,13 +1,21 @@
+var db;
 var _nombre_etapa;
+var _nombre_tour;
 
 if (!db) {
-    var db = new Dexie('bikepacking');
-    db.version(11).stores({
+    _nombre_tour = get_nombre_tour();
+    var db = new Dexie(_nombre_tour);
+    console.log('db no definida', db, _nombre_tour);
+    db.version(1).stores({
         pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
     });
 
-    //console.log('db load', db);
+    console.log('db load', db);
 }
+else {
+    console.log('db definida');
+}
+
 
 /** funciones de consulta  */ /** funciones de consulta  */ /** funciones de consulta  */
 
@@ -30,6 +38,19 @@ async function db_get_poi(nombre_etapa, indice) {
 
 
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
+async function db_crea_tour(nombre_tour) {
+    _nombre_tour = nombre_tour;
+    db = new Dexie(_nombre_tour);
+    db.version(1).stores({
+        pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
+    });
+    db.open().catch(function (err) {
+        console.error(err.stack || err);
+    });
+
+    console.log('db creada', db);
+    console.log('nombre_tour', _nombre_tour);
+}
 
 async function db_crea_prueba(nombre_etapa) {
     _nombre_etapa = nombre_etapa;
@@ -42,6 +63,9 @@ async function db_add(id_punto, nombre, distancia, notas, atributos, punto_refer
         ' punto_referencia ', punto_referencia, ' tipo poi', tipo_poi, ')');
 
     // Interact With Database
+
+    console.log('db_add', db);
+
     db.transaction('rw', db.pruebas, function () {
         // Let's add some data to db:
         insert_object = {

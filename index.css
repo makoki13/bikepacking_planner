@@ -106,6 +106,13 @@ main {
     background-color: var(--fondo);
 }
 
+#nombre_tour {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+}
+
 .task-list {
     padding: 1rem;
 }
@@ -174,6 +181,18 @@ main {
     color: crimson;
 }
 
+.btn_tour {
+    width: 170px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #99d300;
+    color: #fff;
+    text-shadow: 1px 1px 1px var(--grey);
+    text-align: center;
+    border: 1px solid var(--darkest);
+    cursor: pointer;
+}
+
 .btn_prj {
     width: 170px;
     text-align: center;
@@ -184,6 +203,7 @@ main {
     text-align: center;
     border: 1px solid var(--darkest);
     cursor: pointer;
+    visibility: hidden;
 }
 
 .btn_course {
@@ -212,10 +232,11 @@ main {
 
 #bloqueo {
     position: absolute;
-    top: 10.5vh;
-    left: 10.5vw;
-    width: 50vw;
-    height: 50vh;
+    top: 0px;
+    left: 0px;
+    width: 99vw;
+    height: 100vh;
+    min-height: 100vh;
     border: 1px solid #000000;
     background: #DDDDDD;
     z-index: 3;
@@ -224,28 +245,38 @@ main {
     visibility: hidden;
 }
 
+.div_padre {
+    display: flex;
+}
+
 #nuevo_poi {
     position: absolute;
-    top: 10vh;
-    left: 10vw;
-    width: 50vw;
-    height: 50vh;
-    border: 1px solid #000000;
-    background: #DDDDDD;
+    width: 750px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000000;
     z-index: 4;
     visibility: hidden;
 }
 
 #nuevo_poi_sombra {
     position: absolute;
-    top: 135px;
-    left: 335px;
-    height: 200px;
-    width: 400px;
-    border: 1px solid #AAAAAA;
-    background: #AAAAAA;
+    width: 750px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50.2%;
+    left: 50.2%;
+    transform: translate(-50%, -50%);
+    background-color: gainsboro;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000000;
     z-index: 3;
-    filter: alpha(opacity=50);
-    opacity: .5;
     visibility: hidden;
 }
