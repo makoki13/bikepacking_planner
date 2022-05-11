@@ -10,13 +10,22 @@ function crea_tour() {
     });
 }
 
-function cargar_tour() {
-    alert("Tour cargado");
+function cargar_tour_previo() {
+    document.getElementById('frm_tabla').src = "lista_tours.html";
+}
+
+async function cargar_tour(nombre_tour) {
+    set_nombre_tour(nombre_tour);
+    document.getElementById('frm_tabla').src = "";
     muestra_botones_stage();
 }
 
 function get_nombre_tour() {
     return document.getElementById("nombre_tour").innerHTML;
+}
+
+function set_nombre_tour(nombre_tour) {
+    document.getElementById("nombre_tour").innerHTML = nombre_tour;
 }
 
 /** Stages */ /** Stages */ /** Stages */ /** Stages */ /** Stages */
