@@ -27,6 +27,11 @@
         </thead>
         <tbody id="cuerpo_tabla"></tbody>
     </table>
+
+    <script>
+        var nombre_etapa = window.parent.get_nombre_etapa();
+        db_get_all_pois(nombre_etapa).then(function (pois) { cargar_etapa(pois); });
+    </script>
 </body>
 
 </html>

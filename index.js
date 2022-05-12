@@ -11,10 +11,12 @@ function crea_tour() {
 }
 
 function cargar_tour_previo() {
+    document.getElementById('cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_tours.html";
 }
 
 async function cargar_tour(nombre_tour) {
+    //document.getElementById('cabecera').style.display = '';
     set_nombre_tour(nombre_tour);
     document.getElementById('frm_tabla').src = "";
     muestra_botones_stage();
@@ -51,21 +53,26 @@ async function crea_etapa() {
     if (!resp) return;
 
     nombre_etapa = resp;
-
-    estado_botones_etapa('visible')
-
     document.getElementById("nombre_stage").innerHTML = nombre_etapa;
+
+    document.getElementById('frm_tabla').src = "tabla.html";
+    estado_botones_etapa('visible')
 
     db_crea_prueba(nombre_etapa);
 
-    cargar_etapa_new(nombre_etapa)
+    //cargar_etapa_new(nombre_etapa)
 }
 
 function cargar_etapa_new(nombre_nueva_etapa) {
+    document.getElementById('cabecera').style.display = '';
     nombre_etapa = nombre_nueva_etapa;
     document.getElementById("nombre_stage").innerHTML = nombre_etapa;
+    document.getElementById('frm_tabla').src = "tabla.html";
 
-    db_get_all_pois(nombre_etapa).then(function (pois) { document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois); });
+    /* db_get_all_pois(nombre_etapa).then(function (pois) {
+        document.getElementById('frm_tabla').src = "tabla.html";
+        //document.getElementById('frm_tabla').contentWindow.cargar_etapa(pois);
+    }); */
 
     document.getElementById('btn_course_climb').style.visibility = 'visible';
     document.getElementById('btn_course_desc').style.visibility = 'visible';
@@ -73,6 +80,8 @@ function cargar_etapa_new(nombre_nueva_etapa) {
     document.getElementById('btn_course_add').style.visibility = 'visible';
     document.getElementById('btn_course_save').style.visibility = 'visible';
     document.getElementById('btn_course_imprime').style.visibility = 'visible';
+
+    //console.log('cargar_etapa_new', document.getElementById('frm_tabla').contentWindow.cargar_etapa);
 }
 
 function cargar_etapa_old() {
@@ -93,6 +102,7 @@ function cargar_etapa_old() {
 }
 
 function cargar_etapa_previo() {
+    document.getElementById('cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_stages.html";
 }
 

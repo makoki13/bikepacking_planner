@@ -4,20 +4,34 @@ var _nombre_tour;
 
 if (!db) {
     _nombre_tour = get_nombre_tour();
-    var db = new Dexie(_nombre_tour);
-    console.log('db no definida', db, _nombre_tour);
-    db.version(1).stores({
-        pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
-    });
+    if (_nombre_tour == '') {
+        alert('No hay ningun nombre de tour');
+    }
+    else {
+        var db = new Dexie(_nombre_tour);
+        console.log('db no definida', db, _nombre_tour);
+        db.version(1).stores({
+            pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
+        });
 
-    console.log('db load', db);
+        console.log('db load', db);
+        db.open().then(function () {
+            console.log('db definida', db);
+        }).catch(function (err) {
+            console.log('error al abrir la base de datos', err);
+        });
+    }
 }
 else {
-    console.log('db definida');
+    console.log('db NO definida', 'nombre tour', _nombre_tour, 'nombre etapa', _nombre_etapa);
 }
 
 
 /** funciones de consulta  */ /** funciones de consulta  */ /** funciones de consulta  */
+
+async function db_get_stages() {
+    return await db.pruebas.toCollection().distinct().toArray();
+}
 
 async function db_get_all_pois(nombre_etapa) {
     _nombre_etapa = nombre_etapa;
@@ -59,8 +73,12 @@ async function db_crea_prueba(nombre_etapa) {
 
 async function db_add(id_punto, nombre, distancia, notas, atributos, punto_referencia, tipo_poi) {
 
-    console.log('db_add(id,', id_punto, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos,
-        ' punto_referencia ', punto_referencia, ' tipo poi', tipo_poi, ')');
+    if (!_nombre_etapa) {
+        _nombre_etapa = get_nombre_etapa();
+    }
+    console.log('db_add', _nombre_etapa);
+    /* console.log('db_add(id,', id_punto, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos,
+        ' punto_referencia ', punto_referencia, ' tipo poi', tipo_poi, ')'); */
 
     // Interact With Database
 

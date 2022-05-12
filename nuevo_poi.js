@@ -13,6 +13,10 @@ function salir() {
     window.parent.desbloquea_insertar_registro();
 }
 
+function get_nombre_etapa() {
+    return window.parent.get_nombre_etapa();
+}
+
 function add() {
     var nombre_etapa = window.parent.get_nombre_etapa();
 
