@@ -10,7 +10,8 @@ PWA Planner
     - Create / modify / delete Garmin CP climbs    
     - Create / modify / delete RWGPS descents    
     - Generate PDF
-
+    TODO
+        - disable direct modify of composed pois. Mandatory with the edit/add panel of each one.
 
 _Roadmap_
 
