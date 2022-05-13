@@ -1,17 +1,5 @@
-function compara_distancia(a, b) {
-    if (parseFloat(a.distancia) < parseFloat(b.distancia)) {
-        return -1;
-    }
-    if (parseFloat(a.distancia) > parseFloat(b.distancia)) {
-        return 1;
-    }
-    return 0;
-}
-
 function imprime_pdf() {
-    var alto_lineas = 1;
     var alto_puntos = 4;
-    var ancho_linea = 50;
     var margen_izdo = 1;
 
     var ancho_columna1 = 50;
@@ -32,41 +20,34 @@ function imprime_pdf() {
         var estado = estado_actual = 0; //0: neutral, 1: subiendo, 2: bajando
         pois.sort(compara_distancia);
         pois.forEach((elemento, indice) => {
-            console.log('elemento', elemento, 'indice', indice);
             var distancia = parseFloat(elemento.distancia).toFixed(1).toString();
 
             var intervalo = '';
             if (indice < pois.length - 1) {
                 elemento_siguiente = pois[indice + 1];
-                console.log('elemento siguiente', elemento_siguiente);
                 var intervalo = parseFloat(elemento_siguiente.distancia) - parseFloat(elemento.distancia);
                 intervalo = intervalo.toFixed(1).toString();
             }
-
 
             doc.setFillColor(255, 255, 255);
             doc.setTextColor(0, 0, 0);
 
             if (elemento.atributos.includes('gasolinera')) {
-                console.log('gasolinera', elemento.distancia);
                 doc.setFillColor(175, 238, 238);
                 doc.setTextColor(0, 0, 128);
                 doc.setFont('helvetica', '');
             }
             if (elemento.atributos.includes('comida')) {
-                console.log('comida', elemento.distancia);
                 doc.setFillColor(175, 238, 238);
                 doc.setTextColor(0, 0, 128);
                 doc.setFont('helvetica', '');
             }
             if (elemento.atributos.includes('alojamiento')) {
-                console.log('alojamiento', elemento.distancia);
                 doc.setFillColor(175, 238, 238);
                 doc.setTextColor(0, 0, 128);
                 doc.setFont('helvetica', '');
             }
             if (elemento.atributos.includes('taller')) {
-                console.log('taller', elemento.distancia);
                 doc.setFillColor(175, 238, 238);
                 doc.setTextColor(0, 0, 128);
                 doc.setFont('helvetica', '');
@@ -74,38 +55,32 @@ function imprime_pdf() {
 
             if (elemento.atributos.includes('inicio_bajada')) {
                 estado_actual = 2;
-                console.log('inicio bajada', elemento.distancia);
                 doc.setFillColor(0, 128, 0);
                 doc.setTextColor(255, 255, 255);
                 doc.setFont('helvetica', '', 'normal');
             }
             if (elemento.atributos.includes('fin_bajada')) {
                 estado_actual = 0;
-                console.log('fin bajada', elemento.distancia);
                 doc.setTextColor(0, 128, 0);
                 doc.setFont('helvetica', '');
             }
             if (elemento.atributos.includes('inicio_subida')) {
                 estado_actual = 1;
-                console.log('inicio subida', elemento.distancia);
                 doc.setFillColor(255, 100, 100);
                 doc.setTextColor(255, 255, 255);
                 doc.setFont('helvetica', '', 'normal');
             }
             if (elemento.atributos.includes('fin_subida')) {
                 estado_actual = 0;
-                console.log('fin subida', elemento.distancia);
                 doc.setTextColor(128, 0, 0);
                 doc.setFont('helvetica', '');
             }
 
             if ((elemento.atributos.includes('inicio') || elemento.atributos.includes('poblacion'))) {
-                console.log('inicio / poblacion', elemento.distancia);
                 doc.setFont('helvetica', '', 'bold');
                 doc.setFontType('bold');
             }
             if (elemento.atributos.includes('incidencia')) {
-                console.log('otros', elemento.distancia);
                 doc.setFont('helvetica', 'italic');
             }
 
@@ -156,7 +131,5 @@ function imprime_pdf() {
 
         var nombre_fichero = get_nombre_etapa();
         doc.save(nombre_fichero);
-
     });
-
 }

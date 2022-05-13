@@ -4,32 +4,6 @@ var _nombre_tour;
 
 reload_db();
 
-/* if (!db) {
-    _nombre_tour = get_nombre_tour();
-    if (_nombre_tour == '') {
-        console.log('No hay ningun nombre de tour');
-    }
-    else {
-        db = new Dexie(_nombre_tour);
-        console.log('db no definida', db, _nombre_tour);
-        db.version(1).stores({
-            pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
-        });
-
-        console.log('db load', db);
-        db.open().then(function () {
-            console.log('db definida', db);
-        }).catch(function (err) {
-            console.log('error al abrir la base de datos', err);
-        });
-    }
-}
-else {
-    console.log('db SI definida', 'nombre tour', _nombre_tour, 'nombre etapa', _nombre_etapa);
-    console.log('db es ', db);
-} */
-
-
 /** funciones de consulta  */ /** funciones de consulta  */ /** funciones de consulta  */
 
 async function reload_db() {
@@ -50,6 +24,7 @@ async function reload_db() {
                 console.log('reload_db : db definida', db);
             }).catch(function (err) {
                 console.log('reload_db : error al abrir la base de datos', err);
+                console.error(err.stack || err);
             });
         }
     }
@@ -59,10 +34,12 @@ async function reload_db() {
     }
 }
 
+/** Obtiene la lista de stages */
 async function db_get_stages() {
     return await db.pruebas.toCollection().distinct().toArray();
 }
 
+/** Obtiene la lista de pois de una stage */
 async function db_get_all_pois(nombre_etapa) {
     _nombre_etapa = nombre_etapa;
     if (!db) {
@@ -75,6 +52,7 @@ async function db_get_all_pois(nombre_etapa) {
     }
 }
 
+/** Obtiene un poi de una stage */
 async function db_get_poi(nombre_etapa, indice) {
     var valor;
     var pois = await db_get_all_pois(nombre_etapa);
@@ -87,8 +65,11 @@ async function db_get_poi(nombre_etapa, indice) {
     return valor;
 }
 
-
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
+/** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
+/** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
+
+/** Crea un nuevo tour */
 async function db_crea_tour(nombre_tour) {
     _nombre_tour = nombre_tour;
     db = new Dexie(_nombre_tour);
@@ -98,28 +79,18 @@ async function db_crea_tour(nombre_tour) {
     db.open().catch(function (err) {
         console.error(err.stack || err);
     });
-
-    //console.log('db creada', db);
-    //console.log('nombre_tour', _nombre_tour);
 }
 
+/** Crea un nuevo stage. En realidad lo que hace es asignar el nombre del stage para que las operaciones se realicen en su nombre  */
 async function db_crea_prueba(nombre_etapa) {
     _nombre_etapa = nombre_etapa;
-    //console.log(db);
 }
 
+/** añade un punto a una stage */
 async function db_add(id_punto, nombre, distancia, notas, atributos, punto_referencia, tipo_poi) {
-
     if (!_nombre_etapa) {
         _nombre_etapa = get_nombre_etapa();
     }
-    //console.log('db_add', _nombre_etapa);
-    /* console.log('db_add(id,', id_punto, ' nombre,', nombre, ' distancia, ', distancia, ' notas, ', notas, ' atributos, ', atributos,
-        ' punto_referencia ', punto_referencia, ' tipo poi', tipo_poi, ')'); */
-
-    // Interact With Database
-
-    //console.log('db_add', db);
 
     db.transaction('rw', db.pruebas, function () {
         // Let's add some data to db:
@@ -137,43 +108,32 @@ async function db_add(id_punto, nombre, distancia, notas, atributos, punto_refer
     }).catch(function (err) {
         console.error(err.stack || err);
     }).then(() => {
-        //console.log('add ok');
+
     });
 }
 
+/** borra un punto de una stage */
 async function db_delete(nombre_etapa, id_punto) {
     _nombre_etapa = nombre_etapa;
-    //console.log('db_delete(id)', id_punto, 'nombre_etapa', nombre_etapa);
-    //return await db.pruebas.delete(id);
     return await db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), nombre_etapa]).delete();
 }
 
+/** modifica un punto de una stage */
 async function db_modifica_campo(id, campo, valor) {
-    //console.log('db_modifica_campo(id, campo, valor)', 'id', id, 'campo', campo, 'valor', valor);
-
     switch (campo) {
         case 'nombre_poi':
-            console.log('db_modifica_campo(id, campo, valor)', 'id', id, 'campo', campo, 'valor', valor);
-            console.log('db es : ', db);
-            //await db.pruebas.update(id, { nombre_poi: valor });
             await db.pruebas.where({ nombre_etapa: _nombre_etapa, id_punto: id }).modify({ nombre_poi: valor });
             break;
         case 'distancia':
-            console.log('db_modifica_campo(id, campo, valor)', 'id', id, 'campo', campo, 'valor', valor);
-            console.log('db es : ', db);
-            //await db.pruebas.update(id, { distancia: valor });
             await db.pruebas.where({ nombre_etapa: _nombre_etapa, id_punto: id }).modify({ distancia: valor });
             break;
         case 'notas':
-            //await db.pruebas.update(id, { notas: valor });
             await db.pruebas.where({ nombre_etapa: _nombre_etapa, id_punto: id }).modify({ notas: valor });
             break;
         case 'atributos':
-            //await db.pruebas.update(id, { atributos: valor });
             await db.pruebas.where({ nombre_etapa: _nombre_etapa, id_punto: id }).modify({ atributos: valor });
             break;
         case 'punto_referencia':
-            //await db.pruebas.update(id, { punto_referencia: valor });
             await db.pruebas.where({ nombre_etapa: _nombre_etapa, id_punto: id }).modify({ punto_referencia: valor });
             break;
         default:
@@ -182,11 +142,8 @@ async function db_modifica_campo(id, campo, valor) {
     }
 }
 
-//Pasar a interfaces
+/** modifica un registro de una stage */
 async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas, atributos) {
-    console.log('db_modifica_registro', 'id', id_punto, 'nombre_poi', valor_nombre_poi, 'dist', distancia, 'notas', notas, 'atr', atributos);
-    console.log('nombre_etapa', _nombre_etapa);
-
     db.transaction('rw', db.pruebas, async function () {
         await db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), _nombre_etapa]).modify({
             nombre_poi: valor_nombre_poi,
@@ -195,7 +152,6 @@ async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas
             atributos: atributos
         });
     }).then(function () {
-        console.log('update ok -> nombre: ', valor_nombre_poi);
         db_get_all_pois(_nombre_etapa).then(function (pois) {
             console.log(pois);
         });

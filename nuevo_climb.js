@@ -10,7 +10,7 @@ var comentarios = '';
 var indice = 0;
 var indice_poi_asociado = 0;
 
-function get_nombre_tour() {
+/* function get_nombre_tour() {
     nombre = window.parent.get_nombre_tour();
     console.log(nombre);
     return nombre;
@@ -32,7 +32,7 @@ function removeFirstWord(str) {
     }
 
     return str.substring(indexOfSpace + 1);
-}
+} */
 
 async function add() {
     var nombre_etapa = window.parent.get_nombre_etapa();
@@ -74,7 +74,6 @@ async function add() {
         return;
     }
     else {
-        console.log('adicion');
         indice = window.parent.get_new_indice();
 
         var nombre = "Inicio " + punto;
@@ -117,7 +116,6 @@ async function set_valores_formulario(indice_poi) {
     var nombre_etapa = window.parent.get_nombre_etapa();
     await db_get_poi(nombre_etapa, indice).then(
         async function (poi) {
-            console.log('poi', poi);
             indice_poi_asociado = poi.punto_referencia;
             await db_get_poi(nombre_etapa, indice_poi_asociado).then(
                 function (poi_asociado) {
@@ -135,7 +133,6 @@ async function set_valores_formulario(indice_poi) {
                         var notas = poi.notas;
                     }
 
-                    console.log('cadenas', cadenas);
                     tiempo = cadenas[1].trim().split(' ')[1];
                     fiets = cadenas[2].trim().split(' ')[1];
                     media = cadenas[3].trim().split(' ')[1].slice(0, -1);

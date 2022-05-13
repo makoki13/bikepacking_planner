@@ -9,7 +9,7 @@ var comentarios = '';
 var indice = 0;
 var indice_poi_asociado = 0;
 
-function get_nombre_tour() {
+/* function get_nombre_tour() {
     nombre = window.parent.get_nombre_tour();
     console.log(nombre);
     return nombre;
@@ -31,7 +31,7 @@ function removeFirstWord(str) {
     }
 
     return str.substring(indexOfSpace + 1);
-}
+} */
 
 
 async function add_bajada() {
@@ -73,7 +73,6 @@ async function add_bajada() {
         return;
     }
     else {
-        console.log('adicion');
         indice = window.parent.get_new_indice();
 
         var nombre = "Inicio " + punto;
@@ -114,12 +113,9 @@ async function set_valores_formulario(indice_poi) {
     indice = indice_poi;
 
     var nombre_etapa = window.parent.get_nombre_etapa();
-    console.log('nombre_etapa', nombre_etapa, 'indice_poi', indice_poi);
     await db_get_poi(nombre_etapa, indice).then(
         async function (poi) {
-            console.log('poi', poi);
             indice_poi_asociado = poi.punto_referencia;
-            console.log('indice_poi_asociado', indice_poi_asociado);
             await db_get_poi(nombre_etapa, indice_poi_asociado).then(
                 function (poi_asociado) {
                     if (poi.tipo_poi == 3) {
@@ -135,15 +131,11 @@ async function set_valores_formulario(indice_poi) {
                         var notas = poi.notas;
                     }
 
-
-                    console.log('cadenas', cadenas);
                     tiempo = cadenas[1].trim().split(' ')[1];
                     media = cadenas[2].trim().split(' ')[1].slice(0, -1);
                     max_porc = cadenas[3].trim().split(' ')[1].slice(0, -1);
 
-                    console.log('poi', poi);
                     document.getElementById('nombre').value = removeFirstWord(poi.nombre_poi);
-
                     document.getElementById('inicio').value = inicio;
                     document.getElementById('fin').value = fin;
                     document.getElementById('tiempo').value = tiempo;

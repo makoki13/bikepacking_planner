@@ -1,7 +1,7 @@
 var pois;
 var indice = 0;
 
-function compara_distancia(a, b) {
+/* function compara_distancia(a, b) {
     if (parseFloat(a.distancia) < parseFloat(b.distancia)) {
         return -1;
     }
@@ -10,6 +10,7 @@ function compara_distancia(a, b) {
     }
     return 0;
 }
+ */
 
 function muestra(pois) {
     $("#cuerpo_tabla tr").remove();
@@ -59,26 +60,21 @@ function muestra(pois) {
         var evento_click = '';
         switch (tipo_poi) {
             case 1:
-                //console.log('tipo poi---', value.tipo_poi);
                 evento_click = 'edita_registro(' + value._indice + ');';
                 break;
             case 2:
             case 102:
-                //console.log('tipo poi---', value.tipo_poi);
                 evento_click = 'edita_subida(' + value._indice + ');';
                 break;
             case 3:
             case 103:
-                //console.log('tipo poi---', value.tipo_poi);
                 evento_click = 'edita_bajada(' + value._indice + ');';
                 break;
             case 4:
             case 104:
-                //console.log('tipo poi---', value.tipo_poi);
                 evento_click = 'edita_cp(' + value._indice + ');';
                 break;
             default:
-                //console.log('tipo poi--- (unk)', value.tipo_poi);
                 break;
         }
 
@@ -92,8 +88,6 @@ function muestra(pois) {
         else {
             fila += '<td class="atributos" onclick="' + evento_click + '">&nbsp</td>';
         }
-
-        //console.log('fila', fila);
 
         var titulo = '';
         if (value.punto_referencia) {
@@ -147,15 +141,11 @@ async function cargar_etapa(pois) {
     pois = recalcula(pois);
     muestra(pois);
 
-    //console.log('cargar etapa', pois);
-
     $.each(pois, function (key, value) {
         if (value._indice > indice) {
             indice = value._indice;
         }
     });
-
-    console.log('valor indice', indice);
 }
 
 function get_new_indice(incremento) {
@@ -164,44 +154,34 @@ function get_new_indice(incremento) {
 
 function get_nombre_tour() {
     nombre = window.parent.get_nombre_tour();
-    console.log(nombre);
     return nombre;
 }
 
+function _get_punto(indice) {
+    var punto = null;
+    $.each(pois, function (key, value) {
+        if (value._indice == indice) {
+            punto = pois[key];
+        }
+    });
 
-/************************ funciones de insercion , modificacion y borrado  */
-/************************ funciones de insercion , modificacion y borrado  */
-/************************ funciones de insercion , modificacion y borrado  */
-
-
-/* add a new poi to lista */
-/* function add_poi(nombre_poi, distancia, notas, atributos, punto_referencia) {
-    pois.append({ _indice: get_new_indice(1), nombre_poi, distancia, notas, atributos, punto_referencia });
+    return punto;
 }
- */
 
-/* function add(_indice, nombre_poi, distancia, notas, atributos, punto_referencia) {
-    pois.push({ _indice, nombre_poi, distancia, notas, atributos, punto_referencia });
-
-    pois.sort(compara_distancia);
-
-    pois = recalcula(pois);
-
-    muestra(pois);
+function get_pois() {
+    return pois;
 }
- */
+
+/************************ funciones de insercion , modificacion y borrado  */
+/************************ funciones de insercion , modificacion y borrado  */
+/************************ funciones de insercion , modificacion y borrado  */
 
 function borra(indice, indice_de_referencia) {
     var nombre_etapa = window.parent.get_nombre_etapa();
 
-    //console.log('borra', indice, indice_de_referencia);
-
     db_delete(nombre_etapa, indice).then(
         function () {
-            //console.log('borrado primer punto', indice);
-
             if (indice != indice_de_referencia) {
-                //console.log('borrado segundo punto', indice_de_referencia);
                 db_delete(nombre_etapa, indice_de_referencia).then(
                     function () {
                         db_get_all_pois(nombre_etapa).then(
@@ -212,7 +192,6 @@ function borra(indice, indice_de_referencia) {
                     });
             }
             else {
-                //console.log('borrado unico punto', indice);
                 db_get_all_pois(nombre_etapa).then(
                     function (pois) {
                         cargar_etapa(pois);
@@ -224,9 +203,7 @@ function borra(indice, indice_de_referencia) {
 
 function modifica_nombre_poi(indice, nombre_poi) {
     db_modifica_campo(indice, 'nombre_poi', nombre_poi).then(
-        function () {
-            //console.log('modificado modifica_nombre_poi');
-        }
+        function () { }
     );
 }
 
@@ -252,8 +229,7 @@ function set_notas(o, indice) {
     o.innerHTML = resp;
 
     db_modifica_campo(indice, 'notas', resp).then(
-        function () {
-        }
+        function () { }
     );
 }
 
@@ -299,32 +275,3 @@ function edita_bajada(indice) {
 function edita_cp(indice) {
     window.parent.edita_cp(indice);
 }
-
-function get_pois() {
-    return pois;
-}
-
-/********************* funciones no revisadas */
-/********************* funciones no revisadas */
-/********************* funciones no revisadas */
-
-
-function _get_punto(indice) {
-    var punto = null;
-    $.each(pois, function (key, value) {
-        //console.log(value._indice + ' ' + indice);
-        if (value._indice == indice) {
-            punto = pois[key];
-        }
-    });
-
-    return punto;
-}
-
-/* 
-function get_punto(indice) {
-    window.parent.envia_punto(_get_punto(indice));
-} */
-
-
-

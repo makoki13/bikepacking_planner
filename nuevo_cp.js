@@ -8,7 +8,7 @@ var comentarios = '';
 var indice = 0;
 var indice_poi_asociado = 0;
 
-function get_nombre_tour() {
+/* function get_nombre_tour() {
     nombre = window.parent.get_nombre_tour();
     console.log(nombre);
     return nombre;
@@ -20,9 +20,9 @@ function get_nombre_etapa() {
 
 function salir() {
     window.parent.desbloquea_insertar_registro();
-}
+} */
 
-function removeFirstWord(str) {
+/* function removeFirstWord(str) {
     const indexOfSpace = str.indexOf(' ');
 
     if (indexOfSpace === -1) {
@@ -30,7 +30,7 @@ function removeFirstWord(str) {
     }
 
     return str.substring(indexOfSpace + 1);
-}
+} */
 
 function add_cp() {
     var nombre_etapa = window.parent.get_nombre_etapa();
@@ -46,7 +46,6 @@ function add_cp() {
     if (edicion == 'S') {
         var nombre = "Inicio " + punto;
         var nombre_fin = "Fin " + punto;
-        console.log('nombre', nombre);
         var comentarios = 'D: ' + distancia + 'Km. * Asc: ' + ascension + " * M: " + media + "%"
         var comentarios_fin = document.getElementById('comentarios_cp').value;
         var lista_atributos = ['inicio_subida'];
@@ -70,7 +69,6 @@ function add_cp() {
     }
 
     else {
-        console.log('adicion cp');
         indice = window.parent.get_new_indice();
 
         var nombre = "Inicio " + punto;
@@ -111,7 +109,6 @@ async function set_valores_formulario(indice_poi) {
     var nombre_etapa = window.parent.get_nombre_etapa();
     await db_get_poi(nombre_etapa, indice).then(
         async function (poi) {
-            console.log('poi', poi);
             indice_poi_asociado = poi.punto_referencia;
             await db_get_poi(nombre_etapa, indice_poi_asociado).then(
                 function (poi_asociado) {
@@ -129,7 +126,6 @@ async function set_valores_formulario(indice_poi) {
                         var notas = poi.notas;
                     }
 
-                    console.log('cadenas', cadenas);
                     distancia = cadenas[0].trim().split(' ')[1].slice(0, -3);
                     ascension = cadenas[1].trim().split(' ')[1];
                     media = cadenas[2].trim().split(' ')[1].slice(0, -1);
