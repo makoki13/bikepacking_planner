@@ -13,6 +13,7 @@ PWA Planner
     
     TODO
         - disable direct modify of composed pois. Mandatory with the edit/add panel of each one.
+        - Control empty and non valid values in form fields.
 
 _Roadmap_
 
