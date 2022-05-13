@@ -15,6 +15,8 @@ function muestra(pois) {
     $("#cuerpo_tabla tr").remove();
     var fila = '';
     $.each(pois, function (key, value) {
+        var tipo_poi = parseInt(value.tipo_poi);
+
         fila += '<tr class="fila" onmouseover="this.style.backgroundColor = \'#FFFACD\';" onmouseout="this.style.backgroundColor = \'white\';">';
 
         var clase_celda = '';
@@ -40,15 +42,21 @@ function muestra(pois) {
         // solo para control
         //value.notas = 'Tipo: ' + value.tipo_poi + ' * indice: ' + value._indice + ' * ref:' + value.punto_referencia;
 
+        var evento_click = 'onclick="set_notas(this,' + value._indice + ');"';
+        var estilo_notas = '';
+        if ((tipo_poi == 2) || (tipo_poi == 3) || (tipo_poi == 4)) {
+            evento_click = '';
+            estilo_notas = ' style="background-color: #FFCDFA;" ';
+        }
+        //var evento_click = 'onclick="alert(' + tipo_poi + ');"';
         if (typeof value.notas !== "undefined") {
-            fila += '<td class="notas" onclick="set_notas(this,' + value._indice + ');">' + value.notas + '</td>';
+            fila += '<td class="notas" ' + estilo_notas + evento_click + '>' + value.notas + '</td>';
         }
         else {
-            fila += '<td class="notas" onclick="set_notas(this,' + value._indice + ');">&nbsp</td>';
+            fila += '<td class="notas"  ' + estilo_notas + evento_click + '>&nbsp</td>';
         }
 
         var evento_click = '';
-        var tipo_poi = parseInt(value.tipo_poi);
         switch (tipo_poi) {
             case 1:
                 //console.log('tipo poi---', value.tipo_poi);
@@ -266,6 +274,7 @@ function set_distancia(o, indice) {
 
     db_modifica_campo(indice, 'distancia', resp).then(
         function () {
+            console.log('modificado distancia');
             db_get_all_pois(nombre_etapa).then(
                 function (pois) {
                     cargar_etapa(pois);

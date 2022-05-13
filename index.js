@@ -20,6 +20,8 @@ async function cargar_tour(nombre_tour) {
     set_nombre_tour(nombre_tour);
     document.getElementById('frm_tabla').src = "";
     muestra_botones_stage();
+
+    cargar_etapa_previo();
 }
 
 function get_nombre_tour() {
@@ -56,7 +58,9 @@ async function crea_etapa() {
     document.getElementById("nombre_stage").innerHTML = nombre_etapa;
 
     document.getElementById('frm_tabla').src = "tabla.html";
-    estado_botones_etapa('visible')
+    estado_botones_etapa('visible');
+
+    document.getElementById('cabecera').style.display = '';
 
     db_crea_prueba(nombre_etapa);
 
@@ -78,7 +82,6 @@ function cargar_etapa_new(nombre_nueva_etapa) {
     document.getElementById('btn_course_desc').style.visibility = 'visible';
     document.getElementById('btn_course_cp').style.visibility = 'visible';
     document.getElementById('btn_course_add').style.visibility = 'visible';
-    document.getElementById('btn_course_save').style.visibility = 'visible';
     document.getElementById('btn_course_imprime').style.visibility = 'visible';
 
     //console.log('cargar_etapa_new', document.getElementById('frm_tabla').contentWindow.cargar_etapa);
@@ -97,7 +100,6 @@ function cargar_etapa_old() {
     document.getElementById('btn_course_desc').style.visibility = 'visible';
     document.getElementById('btn_course_cp').style.visibility = 'visible';
     document.getElementById('btn_course_add').style.visibility = 'visible';
-    document.getElementById('btn_course_save').style.visibility = 'visible';
     document.getElementById('btn_course_imprime').style.visibility = 'visible';
 }
 
@@ -118,7 +120,6 @@ function estado_botones_etapa(visible) {
     document.getElementById('btn_course_desc').style.visibility = visible;
     document.getElementById('btn_course_cp').style.visibility = visible;
     document.getElementById('btn_course_add').style.visibility = visible;
-    document.getElementById('btn_course_save').style.visibility = visible;
     document.getElementById('btn_course_imprime').style.visibility = visible;
 }
 

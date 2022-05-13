@@ -9,6 +9,16 @@ var comentarios = '';
 var indice = 0;
 var indice_poi_asociado = 0;
 
+function get_nombre_tour() {
+    nombre = window.parent.get_nombre_tour();
+    console.log(nombre);
+    return nombre;
+}
+
+function get_nombre_etapa() {
+    return window.parent.get_nombre_etapa();
+}
+
 function salir() {
     window.parent.desbloquea_insertar_registro();
 }
