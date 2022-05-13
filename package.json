@@ -1,7 +1,7 @@
 {
-    "name": "Demo",
-    "version": "1.0.0",
-    "description": "demo project.",
+    "name": "ultracycling_planner",
+    "version": "0.1.0",
+    "description": "Planificador de viajes en bicicleta",
     "scripts": {
         "lite": "lite-server --port 10001",
         "start": "npm run lite"
