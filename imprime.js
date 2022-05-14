@@ -129,7 +129,8 @@ function imprime_pdf() {
             }
         });
 
+        var nombre_tour = get_nombre_tour();
         var nombre_fichero = get_nombre_etapa();
-        doc.save(nombre_fichero);
+        doc.save(nombre_tour + "_" + nombre_fichero);
     });
 }
