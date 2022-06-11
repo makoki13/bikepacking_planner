@@ -90,14 +90,7 @@ function imprime_pdf() {
             doc.setFillColor(255, 255, 255);
             doc.setTextColor(0, 0, 0);
             doc.setFont('helvetica', '', '');
-            if (estado == 1) {
-                doc.setFillColor(255, 128, 128);
-            }
-            if (estado == 2) {
-                doc.setFillColor(128, 255, 128);
-            }
 
-            estado = estado_actual;
 
             doc.rect(margen_izdo + ancho_columna1, j - margen_sup_rect, ancho_columna2, margen_inf_rect, 'FD');
             doc.text(distancia, margen_izdo + ancho_columna1 + 1, j);
@@ -105,7 +98,17 @@ function imprime_pdf() {
             doc.setFont('helvetica', '', '');
             doc.setFillColor(255, 255, 255);
             doc.setTextColor(0, 0, 0);
-            if (intervalo >= 10) {
+
+            estado = estado_actual;
+            if (estado == 1) {
+                doc.setFillColor(255, 128, 128);
+            }
+            if (estado == 2) {
+                doc.setFillColor(128, 255, 128);
+            }
+
+
+            /*if (intervalo >= 10) {
                 doc.setFillColor(255, 128, 128);
                 doc.setFont('helvetica', '', 'bold');
                 doc.setFontType('bold');
@@ -114,7 +117,7 @@ function imprime_pdf() {
                 doc.setFillColor(255, 255, 128);
                 doc.setFont('helvetica', '', 'bold');
                 doc.setFontType('bold');
-            }
+            } */
 
             doc.rect(margen_izdo + ancho_columna1 + ancho_columna2, j - margen_sup_rect, ancho_columna3, margen_inf_rect, 'FD');
             doc.text(intervalo, margen_izdo + ancho_columna1 + ancho_columna2 + 1, j);
