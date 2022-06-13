@@ -12,6 +12,8 @@
         "lite-server": "^1.3.4"
     },
     "dependencies": {
+        "dexie": "^3.2.2",
+        "downloadjs": "^1.4.7",
         "file-saver": "^2.0.5",
         "http-server": "^14.1.0",
         "jspdf": "^2.5.1"

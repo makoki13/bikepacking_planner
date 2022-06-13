@@ -73,6 +73,7 @@ async function db_get_poi(nombre_etapa, indice) {
 async function db_crea_tour(nombre_tour) {
     _nombre_tour = nombre_tour;
     db = new Dexie(_nombre_tour);
+    console.log(db);
     db.version(1).stores({
         pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
     });
@@ -161,4 +162,17 @@ async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas
     });
 
     return false;
+}
+
+async function db_backup() {
+    console.log('por aqui si');
+    reload_db().then(function () {
+
+        db.pruebas.toArray().then(function (pois) {
+            console.log(pois);
+            let texto = JSON.stringify(pois, null, 4);
+            download(texto, "VELETA 2022.json", "application/json");
+        });
+
+    });
 }

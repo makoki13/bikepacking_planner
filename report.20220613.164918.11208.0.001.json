@@ -1,0 +1,154 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20220613.164918.11208.0.001.json",
+    "dumpEventTime": "2022-06-13T16:49:18Z",
+    "dumpEventTimeStamp": "1655131758427",
+    "processId": 11208,
+    "cwd": "C:\\src\\bikepacking_planner",
+    "commandLine": [
+      "node",
+      "C:\\src\\bikepacking_planner\\node_modules\\.bin\\\\..\\lite-server\\bin\\lite-server",
+      "--port",
+      "10001"
+    ],
+    "nodejsVersion": "v12.16.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.1",
+      "v8": "7.8.279.23-node.31",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.19042",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 21000390,
+        "nice": 0,
+        "sys": 7777515,
+        "idle": 161345203,
+        "irq": 252109
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 12257578,
+        "nice": 0,
+        "sys": 5112875,
+        "idle": 172752468,
+        "irq": 28406
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 26829421,
+        "nice": 0,
+        "sys": 10685437,
+        "idle": 152608062,
+        "irq": 67609
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 12906156,
+        "nice": 0,
+        "sys": 5673265,
+        "idle": 171543500,
+        "irq": 32109
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 17441312,
+        "nice": 0,
+        "sys": 7485156,
+        "idle": 165196453,
+        "irq": 42171
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 7174890,
+        "nice": 0,
+        "sys": 3913734,
+        "idle": 179034296,
+        "irq": 21515
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 12692796,
+        "nice": 0,
+        "sys": 5835656,
+        "idle": 171594468,
+        "irq": 32531
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+        "speed": 3392,
+        "user": 59695593,
+        "nice": 0,
+        "sys": 5601265,
+        "idle": 124826062,
+        "irq": 77687
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Conexión de área local",
+        "internal": false,
+        "mac": "8c:dc:d4:52:ed:ab",
+        "address": "fe80::a92d:a57a:ebe4:5d37",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 7
+      },
+      {
+        "name": "Conexión de área local",
+        "internal": false,
+        "mac": "8c:dc:d4:52:ed:ab",
+        "address": "172.18.215.241",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "intern

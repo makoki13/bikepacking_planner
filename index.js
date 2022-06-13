@@ -1,4 +1,5 @@
 /** Tours */ /** Tours */ /** Tours */ /** Tours */ /** Tours */
+
 function crea_tour() {
     var resp = prompt("Tour name: ");
     if (!resp) return;
@@ -166,3 +167,8 @@ function get_new_indice(incremento = 0) {
     return document.getElementById('frm_tabla').contentWindow.get_new_indice(incremento);
 }
 
+function backup() {
+    db_backup().then(function () {
+        console.log('Backup realizado');
+    });
+}

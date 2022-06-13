@@ -1,0 +1,68 @@
+[
+    {
+        "nombre_etapa": "S6",
+        "id_punto": 1,
+        "nombre_poi": "Güejar-Sierra",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 1
+    },
+    {
+        "nombre_etapa": "S6",
+        "id_punto": 2,
+        "nombre_poi": "Pinos Genil (dvo)",
+        "distancia": 8.8,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 2
+    },
+    {
+        "nombre_etapa": "S7",
+        "id_punto": 1,
+        "nombre_poi": "Complejo El Salto (gas)",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 3
+    },
+    {
+        "nombre_etapa": "S7",
+        "id_punto": 2,
+        "nombre_poi": "Jodar (gas)*",
+        "distancia": 16.4,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 4
+    },
+    {
+        "nombre_etapa": "S8",
+        "id_punto": 1,
+        "nombre_poi": "Coto Rios*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 5
+    },
+    {
+        "nombre_etapa": "S8",
+        "id_punto": 2,
+        "nombre_poi": "Rte Paraiso de Bujaraiza",
+        "distancia": 6.4,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 6
+    }
+]
