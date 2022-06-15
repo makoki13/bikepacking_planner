@@ -21,7 +21,11 @@ async function cargar_tour(nombre_tour) {
     document.getElementById('frm_tabla').src = "";
     muestra_botones_stage();
 
-    cargar_etapa_previo();
+    console.log(nombre_tour);
+
+    db_restore("tours/" + nombre_tour + ".json").then(function () {
+        cargar_etapa_previo();
+    });
 }
 
 function get_nombre_tour() {
@@ -170,5 +174,11 @@ function get_new_indice(incremento = 0) {
 function backup() {
     db_backup().then(function () {
         console.log('Backup realizado');
+    });
+}
+
+function restore(prueba) {
+    db_restore(prueba).then(function () {
+        console.log('Restore realizado');
     });
 }

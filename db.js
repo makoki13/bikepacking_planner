@@ -176,3 +176,28 @@ async function db_backup() {
 
     });
 }
+
+async function db_restore(fichero) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", fichero, false);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4) {
+            if (rawFile.status === 200 || rawFile.status == 0) {
+                var texto = rawFile.responseText;
+                console.log(texto);
+                reload_db().then(function () {
+                    let pois = JSON.parse(texto);
+                    console.log('pois', pois);
+                    db.pruebas.bulkAdd(pois);
+                    db_get_all_pois(_nombre_etapa).then(function (pois) {
+                        console.log(pois);
+                    }
+                    );
+                }
+                );
+            }
+        }
+    }
+    rawFile.send(null);
+
+}
