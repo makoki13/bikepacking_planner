@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="tabla.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/floatthead/2.2.4/jquery.floatThead.min.js" integrity="sha512-QhaSMfyPHtKHbg7e//C6Y/nmpflIM9PgmhZ/TR+BcbRaR9eYXzZRfuK5D9pnVlp+J5zWXu5ckVzX4ycOQy/jZA==" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+    <script type="text/javascript" src="funciones.js"></script>
+    <script type="text/javascript" src="tabla.js"></script>
+    <script src="./db.js"></script>
+</head>
+
+<body>
+    <table id="principal" style="width:100%;">
+        <thead>
+            <tr>
+                <th style="min-width:200px; width: 280px;">Punto</th>
+                <th style="min-width:100px; width:40px;">Dist</th>
+                <th style="min-width:100px; width:40px;">Int</th>
+                <th style="width:50%;">Notas</th>
+                <th style="min-width:50px; width:30px;">A</th>
+                <th style="min-width:50px; width:40px;">B</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpo_tabla"></tbody>
+    </table>
+
+    <script>
+        var nombre_etapa = window.parent.get_nombre_etapa();
+        db_get_all_pois(nombre_etapa).then(function (pois) { cargar_etapa(pois); });
+    </script>
+</body>
+
+</html>

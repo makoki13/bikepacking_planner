@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <title>Ultracycling planner</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>TEST JSON</h1>
+    </header>
+
+    <script>
+        datosAjax = {
+            funcion: "get_tours",
+        }
+
+        $.ajax({
+            url: "localhost:8080/test",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(datosAjax),
+            dataType: "json",
+            processData: false,
+            method: 'POST',
+            success: function (data) {
+                console.log('success')
+            },
+            error: function (data) {
+                console.log('Error!!!', data);
+            }
+        }).done(function (retAjax) {
+            console.log('done', retAjax)
+        });
+    </script>
+</body>
+
+</html>

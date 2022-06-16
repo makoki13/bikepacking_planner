@@ -1,0 +1,358 @@
+[
+    {
+        "nombre_etapa": "S6",
+        "id_punto": 1,
+        "nombre_poi": "Güejar-Sierra",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 1
+    },
+    {
+        "nombre_etapa": "S6",
+        "id_punto": 2,
+        "nombre_poi": "Pinos Genil (dvo)",
+        "distancia": 8.8,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 2
+    },
+    {
+        "nombre_etapa": "S7",
+        "id_punto": 1,
+        "nombre_poi": "Complejo El Salto (gas)",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 3
+    },
+    {
+        "nombre_etapa": "S7",
+        "id_punto": 2,
+        "nombre_poi": "Jodar (gas)*",
+        "distancia": 16.4,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 4
+    },
+    {
+        "nombre_etapa": "S8",
+        "id_punto": 1,
+        "nombre_poi": "Coto Rios*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 5
+    },
+    {
+        "nombre_etapa": "S8",
+        "id_punto": 2,
+        "nombre_poi": "Rte Paraiso de Bujaraiza",
+        "distancia": 6.4,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 6
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 1,
+        "nombre_poi": "Gandia",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "inicio"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 7
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 2,
+        "nombre_poi": "Beniatjar*",
+        "distancia": 33.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 8
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 3,
+        "nombre_poi": "Carricola",
+        "distancia": 40.7,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 9
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 4,
+        "nombre_poi": "Adzaneta",
+        "distancia": 43.4,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 10
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 5,
+        "nombre_poi": "Albaida",
+        "distancia": 47,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 11
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 6,
+        "nombre_poi": "Agullent",
+        "distancia": 50.3,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 12
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 7,
+        "nombre_poi": "Gasolinera (24h)*",
+        "distancia": 57.8,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 13
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 8,
+        "nombre_poi": "Dvo. Pou Clar",
+        "distancia": 59.1,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 14
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 9,
+        "nombre_poi": "Fontanares",
+        "distancia": 75.6,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 15
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 10,
+        "nombre_poi": "Gasolinera (24h)",
+        "distancia": 77.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 16
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 11,
+        "nombre_poi": "Caudete (Gas) (0622)*",
+        "distancia": 98.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 1,
+        "id": 17
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 1,
+        "nombre_poi": "Caudete (Gas 0622)*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 18
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 2,
+        "nombre_poi": "Yecla",
+        "distancia": 13.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 19
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 3,
+        "nombre_poi": "Gasolinera (24h)*",
+        "distancia": 34.1,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 20
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 4,
+        "nombre_poi": "Fuente del Pino",
+        "distancia": 37.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 21
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 5,
+        "nombre_poi": "Gasolinera (0721)",
+        "distancia": 41.7,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 22
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 6,
+        "nombre_poi": "Jumilla",
+        "distancia": 43.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 23
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 7,
+        "nombre_poi": "Gasolinera BP (??)",
+        "distancia": 48.5,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 24
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 8,
+        "nombre_poi": "Gasolinera Cruce (0622)*",
+        "distancia": 69.7,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 25
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 9,
+        "nombre_poi": "Venta Reales",
+        "distancia": 83.6,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 26
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 10,
+        "nombre_poi": "Calasparra (c) (Gas) (c) (0622)",
+        "distancia": 91.6,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 27
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 11,
+        "nombre_poi": "Rte. D. Gomez / Gas (c 0622)*",
+        "distancia": 101,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "comida"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 1,
+        "id": 28
+    }
+]

@@ -1,0 +1,109 @@
+body {
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+th {
+    background-color: pink;
+    color: black;
+    text-shadow: 1px 1px 1px white;
+    text-align: center;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.proyecto {
+    font-size: 36px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-style: hidden;
+}
+
+td {
+    padding: 0.25em;
+    border: 1px solid gainsboro;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    text-align: right;
+    padding-right: 3px;
+}
+
+.notas {
+    text-align: left;
+    padding-left: 3px;
+    font-size: 11px;
+}
+
+.atributos {
+    text-align: center;
+}
+
+button {
+    width: 90%;
+    text-align: center;
+    border: 1px solid rebeccapurple;
+    background-color: blue;
+    color: white;
+}
+
+.fila {
+    cursor: pointer;
+}
+
+.referencia {
+    text-align: center;
+    font-style: italic;
+    font-size: 11px;
+}
+
+.atributo_inicio {
+    font-weight: bolder;
+    color: black;
+}
+
+.atributo_inicio_subida {
+    background-color: #FF6666;
+    color: white;
+}
+
+.atributo_fin_subida {
+    color: red;
+    background-color: white;
+}
+
+.atributo_inicio_bajada {
+    background-color: #66FF66;
+    color: black;
+}
+
+.atributo_fin_bajada {
+    color: green;
+    background-color: white;
+}
+
+.atributo_poblacion {
+    font-weight: bolder;
+    color: black;
+}
+
+.atributo_comida,
+.atributo_alojamiento,
+.atributo_taller,
+.atributo_gasolinera {
+    color: blue;
+    background-color: paleturquoise;
+}
+
+.atributo_incidencia {
+    color: black;
+    font-style: italic;
+}
+
+.cero {
+    background-color: pink;
+}
