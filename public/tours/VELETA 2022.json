@@ -354,5 +354,137 @@
         "punto_referencia": 11,
         "tipo_poi": 1,
         "id": 28
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 1,
+        "nombre_poi": "Rte. D. Gomez / Gas (c 0622)*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "comida"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 29
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 2,
+        "nombre_poi": "Gasolinera (0623)",
+        "distancia": 11,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 30
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 3,
+        "nombre_poi": "Caravaca (dvo via verde)",
+        "distancia": 14,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 31
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 4,
+        "nombre_poi": "Gasolinera (Galp24h)",
+        "distancia": 16.4,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 32
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 5,
+        "nombre_poi": "Gasolinera (REP063022)",
+        "distancia": 21.5,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 33
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 6,
+        "nombre_poi": "Rte. Casablanca (0716)",
+        "distancia": 37.3,
+        "notas": "",
+        "atributos": [
+            "comida"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 34
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 7,
+        "nombre_poi": "Almaciles (Gas 0723)*",
+        "distancia": 61.7,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 35
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 8,
+        "nombre_poi": "Puebla de D. Fadrique",
+        "distancia": 71.3,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 36
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 9,
+        "nombre_poi": "Gasolinera (0722)",
+        "distancia": 94.5,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 37
+    },
+    {
+        "nombre_etapa": "S3",
+        "id_punto": 10,
+        "nombre_poi": "Huescar*",
+        "distancia": 97.9,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 38
     }
 ]
