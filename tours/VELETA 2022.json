@@ -208,5 +208,151 @@
         "punto_referencia": 11,
         "tipo_poi": 1,
         "id": 17
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 1,
+        "nombre_poi": "Caudete (Gas 0622)*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 18
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 2,
+        "nombre_poi": "Yecla",
+        "distancia": 13.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 19
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 3,
+        "nombre_poi": "Gasolinera (24h)*",
+        "distancia": 34.1,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 20
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 4,
+        "nombre_poi": "Fuente del Pino",
+        "distancia": 37.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 21
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 5,
+        "nombre_poi": "Gasolinera (0721)",
+        "distancia": 41.7,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 22
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 6,
+        "nombre_poi": "Jumilla",
+        "distancia": 43.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 23
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 7,
+        "nombre_poi": "Gasolinera BP (??)",
+        "distancia": 48.5,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 24
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 8,
+        "nombre_poi": "Gasolinera Cruce (0622)*",
+        "distancia": 69.7,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 25
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 9,
+        "nombre_poi": "Venta Reales",
+        "distancia": 83.6,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 26
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 10,
+        "nombre_poi": "Calasparra (c) (Gas) (c) (0622)",
+        "distancia": 91.6,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 27
+    },
+    {
+        "nombre_etapa": "S2",
+        "id_punto": 11,
+        "nombre_poi": "Rte. D. Gomez / Gas (c 0622)*",
+        "distancia": 101,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "comida"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 1,
+        "id": 28
     }
 ]

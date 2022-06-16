@@ -89,7 +89,8 @@ async function cargar_tour(nombre_tour) {
 }
 
 function get_nombre_tour() {
-    return document.getElementById("nombre_tour").innerHTML;
+    return "bikepacking_makoki_enterprises";
+    //return document.getElementById("nombre_tour").innerHTML;
 }
 
 function set_nombre_tour(nombre_tour) {
