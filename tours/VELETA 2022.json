@@ -64,5 +64,149 @@
         "punto_referencia": 2,
         "tipo_poi": 1,
         "id": 6
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 1,
+        "nombre_poi": "Gandia",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "inicio"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 7
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 2,
+        "nombre_poi": "Beniatjar*",
+        "distancia": 33.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 8
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 3,
+        "nombre_poi": "Carricola",
+        "distancia": 40.7,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 9
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 4,
+        "nombre_poi": "Adzaneta",
+        "distancia": 43.4,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 10
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 5,
+        "nombre_poi": "Albaida",
+        "distancia": 47,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 11
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 6,
+        "nombre_poi": "Agullent",
+        "distancia": 50.3,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 12
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 7,
+        "nombre_poi": "Gasolinera (24h)*",
+        "distancia": 57.8,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 13
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 8,
+        "nombre_poi": "Dvo. Pou Clar",
+        "distancia": 59.1,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 14
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 9,
+        "nombre_poi": "Fontanares",
+        "distancia": 75.6,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 15
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 10,
+        "nombre_poi": "Gasolinera (24h)",
+        "distancia": 77.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 16
+    },
+    {
+        "nombre_etapa": "S1",
+        "id_punto": 11,
+        "nombre_poi": "Caudete (Gas) (0622)*",
+        "distancia": 98.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 1,
+        "id": 17
     }
 ]

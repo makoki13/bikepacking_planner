@@ -21,17 +21,17 @@
             <tr>
                 <td style="width:100%;text-align: center;">
                     <button class="btn_tour" onclick="crea_tour()">NEW TOUR</button>
-                    <button class="btn_tour" onclick="cargar_tour_previo()">LOAD TOUR</button>
+                    <button id="btn_load_tour" class="btn_tour" style="display:none;" onclick="cargar_tour_previo()">LOAD A TOUR</button>
                 </td>
             </tr>
             <tr>
                 <td style="min-width:100%">
                     <table rules="all" style="width:100%;border:1px solid black;">
                         <tr>
-                            <td style="width:50%;text-align: center;">
+                            <td style="width:40%;text-align: center;">
                                 <label id="nombre_tour"></label>
                             </td>
-                            <td style="width:50%;">
+                            <td style="width:60%;">
                                 <table style="width:100%;background-color: bisque;">
                                     <tr>
                                         <td>
@@ -44,8 +44,6 @@
                             </td>
                         </tr>
                     </table>
-
-
                 </td>
             </tr>
         </table>
@@ -80,5 +78,6 @@
 
     <script>
         //restore('/tours/VELETA 2022.json');
+        cargar_tour_previo()
     </script>
 </body>

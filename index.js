@@ -1,22 +1,82 @@
 /** Tours */ /** Tours */ /** Tours */ /** Tours */ /** Tours */
+var lista_tours = [];
+var refreshIntervalId;
+
+function existe_lista_tours() {
+    var directory = 'tours/tours.json';
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", directory, false);
+    xmlHttp.send(null);
+    var estado = xmlHttp.status;
+    var files = xmlHttp.responseText;
+
+
+    if (xmlHttp.readyState === 4) {
+        if (estado === 200 || estado == 0) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+function recarga_lista_tours() {
+    if (existe_lista_tours()) {
+        console.log('ya está');
+        cargar_tour_previo();
+        clearInterval(refreshIntervalId);
+    }
+    else {
+        console.log('todavia no');
+    }
+}
 
 function crea_tour() {
     var resp = prompt("Tour name: ");
     if (!resp) return;
 
+    console.log(lista_tours);
+
     db_crea_tour(resp).then(function () {
-        console.log('db', db);
         document.getElementById("nombre_tour").innerHTML = resp;
         muestra_botones_stage();
+
+        lista_tours.push(resp);
+
+        if (existe_lista_tours()) {
+            cargar_tour_previo();
+            regenera_fichero_json();
+        }
+        else {
+            console.log('paso1', document.getElementById('frm_tabla').src);
+            document.getElementById('frm_tabla').contentWindow.set_mensaje_espera();
+            regenera_fichero_json().then(function () {
+                refreshIntervalId = setInterval(recarga_lista_tours, 2000);
+            });
+        }
+
     });
 }
 
+async function regenera_fichero_json() {
+    var data = JSON.stringify(lista_tours);
+    download(data, "tours.json", "application/json");
+}
+
 function cargar_tour_previo() {
+    console.log('cargando tour previo', lista_tours);
     document.getElementById('cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_tours.html";
 }
 
+function set_lista_tours(lista) {
+    lista_tours = lista;
+    console.log('set_lista_tours', lista_tours);
+}
+
 async function cargar_tour(nombre_tour) {
+    document.getElementById('btn_load_tour').style.display = '';
     set_nombre_tour(nombre_tour);
     document.getElementById('frm_tabla').src = "";
     muestra_botones_stage();

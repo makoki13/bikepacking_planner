@@ -26,10 +26,19 @@
 
 <body>
     <div class="container">
-        <label for="combo_edicion">Choose a Tour:</label>
+        <label for="combo_edicion" id="label_combo">Choose a Tour:</label>
         <table id="combo_edicion"></table>
     </div>
     <script>
-        get_lista_tours();
+        var lista_tours = window.parent.lista_tours;
+        if (lista_tours.length == 0) {
+            console.log("No hay tours");
+            var lista_tours = get_lista_tours();
+        }
+        else {
+            console.log("Hay tours", lista_tours);
+            muestra_tours(lista_tours);
+        }
+        window.parent.set_lista_tours(lista_tours);
     </script>
 </body>
