@@ -10,27 +10,27 @@ async function reload_db() {
     if (!db) {
         _nombre_tour = get_nombre_tour();
         if (_nombre_tour == '') {
-            console.log('reload_db : No hay ningun nombre de tour');
+            //console.log('reload_db : No hay ningun nombre de tour');
         }
         else {
             db = new Dexie(_nombre_tour);
-            console.log('reload_db : db no definida', db, _nombre_tour);
+            //console.log('reload_db : db no definida', db, _nombre_tour);
             db.version(1).stores({
                 pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
             });
 
-            console.log('reload_db : db load', db);
+            //console.log('reload_db : db load', db);
             db.open().then(function () {
-                console.log('reload_db : db definida', db);
+                //console.log('reload_db : db definida', db);
             }).catch(function (err) {
-                console.log('reload_db : error al abrir la base de datos', err);
-                console.error(err.stack || err);
+                //console.log('reload_db : error al abrir la base de datos', err);
+                //console.error(err.stack || err);
             });
         }
     }
     else {
-        console.log('reload_db : db SI definida', 'nombre tour', _nombre_tour, 'nombre etapa', _nombre_etapa);
-        console.log('reload_db : db es ', db);
+        //console.log('reload_db : db SI definida', 'nombre tour', _nombre_tour, 'nombre etapa', _nombre_etapa);
+        //console.log('reload_db : db es ', db);
     }
 }
 
@@ -73,7 +73,7 @@ async function db_get_poi(nombre_etapa, indice) {
 async function db_crea_tour(nombre_tour) {
     _nombre_tour = nombre_tour;
     db = new Dexie(_nombre_tour);
-    console.log(db);
+    //console.log(db);
     db.version(1).stores({
         pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
     });
@@ -154,7 +154,7 @@ async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas
         });
     }).then(function () {
         db_get_all_pois(_nombre_etapa).then(function (pois) {
-            console.log(pois);
+            //console.log(pois);
         });
     }).catch(Dexie.ModifyError, function (e) {
         console.error(e.failures.length + "failed to hire modify");
@@ -165,13 +165,28 @@ async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas
 }
 
 async function db_backup() {
-    console.log('por aqui si');
+    //console.log('por aqui si');
     reload_db().then(function () {
 
         db.pruebas.toArray().then(function (pois) {
-            console.log(pois);
+            //console.log(pois);
             let texto = JSON.stringify(pois, null, 4);
-            download(texto, "VELETA 2022.json", "application/json");
+
+            var endpoint = '/api/endpoint';
+            var http = new XMLHttpRequest();
+            http.open('POST', endpoint, true);
+            http.setRequestHeader('Content-type', 'application/json');
+            http.onreadystatechange = function () {
+                if (http.readyState === 4 && http.status === 200 && http.responseText) {
+                    console.log(http.responseText)
+                }
+            };
+
+            // Send request
+            http.send();
+
+
+            //download(texto, "VELETA 2022.json", "application/json");
         });
 
     });
@@ -184,13 +199,13 @@ async function db_restore(fichero) {
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status == 0) {
                 var texto = rawFile.responseText;
-                console.log(texto);
+                //console.log(texto);
                 reload_db().then(function () {
                     let pois = JSON.parse(texto);
-                    console.log('pois', pois);
+                    //console.log('pois', pois);
                     db.pruebas.bulkAdd(pois);
                     db_get_all_pois(_nombre_etapa).then(function (pois) {
-                        console.log(pois);
+                        //console.log(pois);
                     }
                     );
                 }

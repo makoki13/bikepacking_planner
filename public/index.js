@@ -23,12 +23,12 @@ function existe_lista_tours() {
 
 function recarga_lista_tours() {
     if (existe_lista_tours()) {
-        console.log('ya está');
+        //console.log('ya está');
         cargar_tour_previo();
         clearInterval(refreshIntervalId);
     }
     else {
-        console.log('todavia no');
+        //console.log('todavia no');
     }
 }
 
@@ -36,7 +36,7 @@ function crea_tour() {
     var resp = prompt("Tour name: ");
     if (!resp) return;
 
-    console.log(lista_tours);
+    //console.log(lista_tours);
 
     db_crea_tour(resp).then(function () {
         document.getElementById("nombre_tour").innerHTML = resp;
@@ -49,7 +49,7 @@ function crea_tour() {
             regenera_fichero_json();
         }
         else {
-            console.log('paso1', document.getElementById('frm_tabla').src);
+            //console.log('paso1', document.getElementById('frm_tabla').src);
             document.getElementById('frm_tabla').contentWindow.set_mensaje_espera();
             regenera_fichero_json().then(function () {
                 refreshIntervalId = setInterval(recarga_lista_tours, 2000);
@@ -65,14 +65,14 @@ async function regenera_fichero_json() {
 }
 
 function cargar_tour_previo() {
-    console.log('cargando tour previo', lista_tours);
+    //console.log('cargando tour previo', lista_tours);
     document.getElementById('cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_tours.html";
 }
 
 function set_lista_tours(lista) {
     lista_tours = lista;
-    console.log('set_lista_tours', lista_tours);
+    //console.log('set_lista_tours', lista_tours);
 }
 
 async function cargar_tour(nombre_tour) {
@@ -81,7 +81,7 @@ async function cargar_tour(nombre_tour) {
     document.getElementById('frm_tabla').src = "";
     muestra_botones_stage();
 
-    console.log(nombre_tour);
+    //console.log(nombre_tour);
 
     db_restore("tours/" + nombre_tour + ".json").then(function () {
         cargar_etapa_previo();
@@ -105,7 +105,7 @@ function muestra_botones_stage() {
     botones = document.getElementsByClassName('btn_prj');
     for (key in botones) {
         if (botones[key].id === undefined) continue;
-        console.log(botones[key].id);
+        //console.log(botones[key].id);
         botones[key].style.visibility = 'visible';
     }
     //botones.style.display = 'block';
@@ -170,7 +170,7 @@ function insertar_registro() {
 }
 
 function edita_registro(indice) {
-    console.log('edita_registro', indice);
+    //console.log('edita_registro', indice);
     document.getElementById('frmNuevaVersion').src = 'nuevo_poi.html?edicion=S&indice=' + indice;
     document.getElementById('bloqueo').style.visibility = 'visible';
     document.getElementById('nuevo_poi').style.visibility = 'visible';
@@ -191,7 +191,7 @@ function insertar_ascenso() {
 }
 
 function edita_ascenso(indice) {
-    console.log('edita_ascenso', indice);
+    //console.log('edita_ascenso', indice);
     document.getElementById('frmNuevaVersion').src = 'nuevo_climb.html?edicion=S&indice=' + indice;
     document.getElementById('bloqueo').style.visibility = 'visible';
     document.getElementById('nuevo_poi').style.visibility = 'visible';
@@ -206,7 +206,7 @@ function insertar_descenso() {
 }
 
 function edita_descenso(indice) {
-    console.log('edita_descenso', indice);
+    //console.log('edita_descenso', indice);
     document.getElementById('frmNuevaVersion').src = 'nueva_bajada.html?edicion=S&indice=' + indice;
     document.getElementById('bloqueo').style.visibility = 'visible';
     document.getElementById('nuevo_poi').style.visibility = 'visible';
@@ -221,7 +221,7 @@ function insertar_cp() {
 }
 
 function edita_cp(indice) {
-    console.log('edita_cp', indice);
+    //console.log('edita_cp', indice);
     document.getElementById('frmNuevaVersion').src = 'nuevo_cp.html?edicion=S&indice=' + indice;
     document.getElementById('bloqueo').style.visibility = 'visible';
     document.getElementById('nuevo_poi').style.visibility = 'visible';
@@ -234,12 +234,12 @@ function get_new_indice(incremento = 0) {
 
 function backup() {
     db_backup().then(function () {
-        console.log('Backup realizado');
+        //console.log('Backup realizado');
     });
 }
 
 function restore(prueba) {
     db_restore(prueba).then(function () {
-        console.log('Restore realizado');
+        //console.log('Restore realizado');
     });
 }

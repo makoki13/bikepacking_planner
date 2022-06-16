@@ -32,11 +32,11 @@
     <script>
         var lista_tours = window.parent.lista_tours;
         if (lista_tours.length == 0) {
-            console.log("No hay tours");
+            //console.log("No hay tours");
             var lista_tours = get_lista_tours();
         }
         else {
-            console.log("Hay tours", lista_tours);
+            //console.log("Hay tours", lista_tours);
             muestra_tours(lista_tours);
         }
         window.parent.set_lista_tours(lista_tours);
