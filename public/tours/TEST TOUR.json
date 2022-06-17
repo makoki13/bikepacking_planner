@@ -9,5 +9,16 @@
         "punto_referencia": 1,
         "tipo_poi": 1,
         "id": 1
+    },
+    {
+        "nombre_etapa": "STAGE 2",
+        "id_punto": 1,
+        "nombre_poi": "TST PUNTO 1",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 2
     }
 ]

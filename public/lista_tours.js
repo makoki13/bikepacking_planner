@@ -7,7 +7,11 @@ function muestra_tours(lista) {
         html +=
             '<tr onmouseover="this.children[1].style.visibility=\'visible\';" onmouseout="this.children[1].style.visibility=\'hidden\';">' +
             '<td class="opciones" onclick="carga_tour(this);">' + lista[i] + '</td>' +
-            '<td class="opciones" style="visibility:hidden;" onclick="borra_tour(\'' + lista[i] + '\');">B</td>' +
+            '<td class="opciones" style="visibility:hidden;" ' +
+            ' onmouseover="this.style.color=\'yellow\';"' +
+            ' onmouseout="this.style.color=\'red\';"' +
+            ' onclick="borra_tour(\'' + lista[i] + '\');">B</td>' +
+
             '</tr>';
         lista_tours.push(lista[i]);
         //console.log('he pasado ', i, lista_tours);

@@ -24,6 +24,8 @@ function crea_tour() {
     var resp = prompt("Tour name: ");
     if (!resp) return;
 
+    document.getElementById('div_cabecera').style.display = 'none';
+
     db_crea_tour(resp).then(function () {
         document.getElementById("nombre_tour").innerHTML = resp;
         muestra_botones_stage();
@@ -39,7 +41,7 @@ function termino_guardar_lista_tours() {
 }
 
 function cargar_tour_previo() {
-    document.getElementById('cabecera').style.display = 'none';
+    document.getElementById('div_cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_tours.html";
 }
 
@@ -118,13 +120,13 @@ async function crea_etapa() {
     document.getElementById('frm_tabla').src = "tabla.html";
     estado_botones_etapa('visible');
 
-    document.getElementById('cabecera').style.display = '';
+    document.getElementById('div_cabecera').style.display = '';
 
     db_crea_prueba(nombre_etapa);
 }
 
 function cargar_etapa_new(nombre_nueva_etapa) {
-    document.getElementById('cabecera').style.display = '';
+    document.getElementById('div_cabecera').style.display = '';
     nombre_etapa = nombre_nueva_etapa;
     document.getElementById("nombre_stage").innerHTML = nombre_etapa;
     document.getElementById('frm_tabla').src = "tabla.html";
@@ -137,7 +139,7 @@ function cargar_etapa_new(nombre_nueva_etapa) {
 }
 
 function cargar_etapa_previo() {
-    document.getElementById('cabecera').style.display = 'none';
+    document.getElementById('div_cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_stages.html";
 }
 
