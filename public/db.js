@@ -174,47 +174,11 @@ async function db_backup() {
     });
 }
 
-function db_guarda_lista_tours(lista_tours) {
-    console.log('lista', lista_tours);
-
-    let texto = JSON.stringify(lista_tours, null, 4);
-
-    console.log('antes de ajax');
-
-    $.ajax({
-        type: 'POST',
-        url: '/api/tours',
-        data: {
-            texto: texto
-        },
-        error: function (data) {
-            console.error(data);
-        },
-        success: function (data) {
-            console.log('success de ajax: ', data);
-            window.parent.termino_guardar_lista_tours();
-        }
-    });
-
-    console.log('despues de ajax');
-}
-
-
-function envia_datos(texto, nombre_tour) {
-    console.log('nombre_tour', nombre_tour);
-    $.ajax({
-        type: 'POST',
-        url: '/api/endpoint',
-        data: {
-            texto: texto,
-            nombre_tour: nombre_tour
-        },
-        error: function (data) {
-            console.error(data);
-        },
-        success: function (data) {
-            console.log(data);
-        }
+async function db_delete_stage(nombre_etapa) {
+    db.pruebas.where('nombre_etapa').equals(nombre_etapa).delete().then(function () {
+        db_backup();
+    }).catch(function (err) {
+        console.error(err.stack || err);
     });
 }
 
@@ -242,3 +206,47 @@ async function db_restore(fichero) {
     rawFile.send(null);
 
 }
+
+async function db_guarda_lista_tours(lista_tours) {
+    console.log('lista', lista_tours);
+
+    let texto = JSON.stringify(lista_tours, null, 4);
+
+    console.log('antes de ajax');
+
+    $.ajax({
+        type: 'POST',
+        url: '/api/tours',
+        data: {
+            texto: texto
+        },
+        error: function (data) {
+            console.error(data);
+        },
+        success: function (data) {
+            console.log('success de ajax: ', data);
+            window.parent.termino_guardar_lista_tours();
+        }
+    });
+
+    console.log('despues de ajax');
+}
+
+function envia_datos(texto, nombre_tour) {
+    console.log('nombre_tour', nombre_tour);
+    $.ajax({
+        type: 'POST',
+        url: '/api/endpoint',
+        data: {
+            texto: texto,
+            nombre_tour: nombre_tour
+        },
+        error: function (data) {
+            console.error(data);
+        },
+        success: function (data) {
+            console.log(data);
+        }
+    });
+}
+

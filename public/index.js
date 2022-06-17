@@ -38,12 +38,6 @@ function termino_guardar_lista_tours() {
     cargar_tour_previo();
 }
 
-
-async function regenera_fichero_json() {
-    var data = JSON.stringify(lista_tours);
-    download(data, "tours.json", "application/json");
-}
-
 function cargar_tour_previo() {
     document.getElementById('cabecera').style.display = 'none';
     document.getElementById('frm_tabla').src = "lista_tours.html";
@@ -73,6 +67,20 @@ async function cargar_tour(nombre_tour) {
         });
     });
     console.log('cargar_tour FIN');
+}
+
+async function borra_tour(nombre_tour) {
+    var resp = confirm("Are you sure you want to delete the tour " + nombre_tour + "?");
+    if (!resp) return;
+    var resp = confirm("Confirm the election");
+    if (!resp) return;
+
+    lista_tours = lista_tours.filter(function (item) {
+        return item !== nombre_tour;
+    });
+
+
+    db_guarda_lista_tours(lista_tours);
 }
 
 function get_nombre_tour() {

@@ -1,0 +1,13 @@
+[
+    {
+        "nombre_etapa": "test 1",
+        "id_punto": 1,
+        "nombre_poi": "test 1",
+        "distancia": 2,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 1
+    }
+]

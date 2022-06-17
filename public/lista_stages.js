@@ -15,10 +15,27 @@ function carga_lista_stages() {
             select = document.getElementById('combo_edicion');
             var html = '';
             for (var i = 0; i < lista_stages.length; i++) {
-                html += '<tr><td class="opciones" onclick="carga_stage(this);">' + lista_stages[i] + '</td></tr>';
+                html +=
+                    '<tr onmouseover="this.children[1].style.visibility=\'visible\';" onmouseout="this.children[1].style.visibility=\'hidden\';">' +
+                    '<td class="opciones" onclick="carga_stage(this);">' + lista_stages[i] + '</td>' +
+                    '<td class="opciones" style="visibility:hidden;" onclick="borra_stage(\'' + lista_stages[i] + '\');">B</td>' +
+                    '</tr>';
             }
             select.innerHTML = html;
         }
+    });
+}
+
+function borra_stage(nombre) {
+    var resp = confirm("Are you sure you want to delete the stage " + nombre + "?");
+    if (!resp) return;
+    var resp = confirm("Confirm the election");
+    if (!resp) return;
+
+    console.log('antes de borrar');
+    db_delete_stage(nombre).then(function () {
+        console.log('ya he borrado, voy a cargar');
+        carga_lista_stages();
     });
 }
 

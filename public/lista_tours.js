@@ -1,24 +1,14 @@
-/* function get_lista_tours() {
-    select = document.getElementById('combo_edicion');
-    Dexie.getDatabaseNames().then(function (names) {
-        if (names.length === 0) {
-            //console.log("No hay bases de datos");
-        } else {
-            var html = '';
-            for (var i = 0; i < names.length; i++) {
-                html += '<tr><td class="opciones" onclick="carga_tour(this);">' + names[i] + '</td></tr>';
-            }
-            select.innerHTML = html;
-        }
-    });
-} */
-
 function muestra_tours(lista) {
     select = document.getElementById('combo_edicion');
     var lista_tours = [];
     var html = '';
     for (var i = 0; i < lista.length; i++) {
-        html += '<tr><td class="opciones" onclick="carga_tour(this);">' + lista[i] + '</td></tr>';
+
+        html +=
+            '<tr onmouseover="this.children[1].style.visibility=\'visible\';" onmouseout="this.children[1].style.visibility=\'hidden\';">' +
+            '<td class="opciones" onclick="carga_tour(this);">' + lista[i] + '</td>' +
+            '<td class="opciones" style="visibility:hidden;" onclick="borra_tour(\'' + lista[i] + '\');">B</td>' +
+            '</tr>';
         lista_tours.push(lista[i]);
         //console.log('he pasado ', i, lista_tours);
     }
@@ -65,4 +55,8 @@ function carga_tour(o) {
         return;
     }
     window.parent.cargar_tour(nombre);
+}
+
+function borra_tour(nombre) {
+    window.parent.borra_tour(nombre);
 }
