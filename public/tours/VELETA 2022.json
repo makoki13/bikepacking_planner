@@ -486,5 +486,16 @@
         "punto_referencia": 10,
         "tipo_poi": 1,
         "id": 38
+    },
+    {
+        "nombre_etapa": "S4",
+        "id_punto": 1,
+        "nombre_poi": "Huescar*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 46
     }
 ]

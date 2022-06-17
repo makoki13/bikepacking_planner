@@ -4,7 +4,6 @@ var fs = require('file-system');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  //res.render('index', { title: 'Express' });
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -20,7 +19,6 @@ function guarda_fichero(url, body) {
 }
 
 router.post('/api/endpoint', function (request, response) {
-  //console.log('request', request, 'response', response);
   guarda_fichero(request.body.nombre_tour, request.body.texto);
   response.send('ok')
 });
