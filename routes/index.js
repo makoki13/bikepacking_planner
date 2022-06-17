@@ -23,5 +23,10 @@ router.post('/api/endpoint', function (request, response) {
   response.send('ok')
 });
 
+router.post('/api/tours', function (request, response) {
+  guarda_fichero('tours.json', request.body.texto);
+  response.send('ok')
+});
+
 
 module.exports = router;

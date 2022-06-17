@@ -42,11 +42,21 @@ async function db_get_poi(nombre_etapa, indice) {
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
 async function db_crea() {
+    console.log('creando db');
     db = new Dexie(_nombre_db);
     db.version(1).stores({
         pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
     });
     db.open().then(function () { }).catch(function (err) { });
+}
+
+async function db_borra_database() {
+    console.log('voy a borrar');
+    await reload_db().then(function () {
+        db.delete().then(function () {
+            console.log('borrado');
+        });
+    });
 }
 
 async function reload_db() {
@@ -163,6 +173,32 @@ async function db_backup() {
 
     });
 }
+
+function db_guarda_lista_tours(lista_tours) {
+    console.log('lista', lista_tours);
+
+    let texto = JSON.stringify(lista_tours, null, 4);
+
+    console.log('antes de ajax');
+
+    $.ajax({
+        type: 'POST',
+        url: '/api/tours',
+        data: {
+            texto: texto
+        },
+        error: function (data) {
+            console.error(data);
+        },
+        success: function (data) {
+            console.log('success de ajax: ', data);
+            window.parent.termino_guardar_lista_tours();
+        }
+    });
+
+    console.log('despues de ajax');
+}
+
 
 function envia_datos(texto, nombre_tour) {
     console.log('nombre_tour', nombre_tour);

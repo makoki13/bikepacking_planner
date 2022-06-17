@@ -1,5 +1,6 @@
 function carga_lista_stages() {
     db_get_stages().then(function (registros) {
+        registros.sort(compara);
         var lista_stages = Array();
         if (registros.length === 0) {
             //console.log("No hay bases de datos");
