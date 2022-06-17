@@ -1,5 +1,6 @@
 function get_nombre_tour() {
     nombre = window.parent.get_nombre_tour();
+    console.log('el nombre es: '    + nombre);
     return nombre;
 }
 

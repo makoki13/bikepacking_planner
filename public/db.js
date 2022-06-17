@@ -1,38 +1,11 @@
 var db;
 var _nombre_etapa;
 var _nombre_tour;
+var _nombre_db = 'bikepacking_makoki_enterprises';
 
 reload_db();
 
 /** funciones de consulta  */ /** funciones de consulta  */ /** funciones de consulta  */
-
-async function reload_db() {
-    if (!db) {
-        _nombre_tour = get_nombre_tour();
-        if (_nombre_tour == '') {
-            //console.log('reload_db : No hay ningun nombre de tour');
-        }
-        else {
-            db = new Dexie(_nombre_tour);
-            //console.log('reload_db : db no definida', db, _nombre_tour);
-            db.version(1).stores({
-                pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
-            });
-
-            //console.log('reload_db : db load', db);
-            db.open().then(function () {
-                //console.log('reload_db : db definida', db);
-            }).catch(function (err) {
-                //console.log('reload_db : error al abrir la base de datos', err);
-                //console.error(err.stack || err);
-            });
-        }
-    }
-    else {
-        //console.log('reload_db : db SI definida', 'nombre tour', _nombre_tour, 'nombre etapa', _nombre_etapa);
-        //console.log('reload_db : db es ', db);
-    }
-}
 
 /** Obtiene la lista de stages */
 async function db_get_stages() {
@@ -68,18 +41,24 @@ async function db_get_poi(nombre_etapa, indice) {
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
 /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */ /** funciones de insercion , modificacion y borrado  */
-
-/** Crea un nuevo tour */
-async function db_crea_tour(nombre_tour) {
-    _nombre_tour = nombre_tour;
-    db = new Dexie(_nombre_tour);
-    //console.log(db);
+async function db_crea() {
+    db = new Dexie(_nombre_db);
     db.version(1).stores({
         pruebas: '++id, nombre_etapa, id_punto,nombre_poi, distancia, notas, atributos, punto_referencia,tipo_poi,[id+nombre_etapa],[id_punto+nombre_etapa]'
     });
-    db.open().catch(function (err) {
-        console.error(err.stack || err);
-    });
+    db.open().then(function () { }).catch(function (err) { });
+}
+
+async function reload_db() {
+    if (!db) {
+        db_crea();
+    }
+}
+
+/** Crea un nuevo tour */
+async function db_crea_tour(tour) {
+    _nombre_tour = tour;
+    db_crea();
 }
 
 /** Crea un nuevo stage. En realidad lo que hace es asignar el nombre del stage para que las operaciones se realicen en su nombre  */
@@ -109,14 +88,20 @@ async function db_add(id_punto, nombre, distancia, notas, atributos, punto_refer
     }).catch(function (err) {
         console.error(err.stack || err);
     }).then(() => {
-
+        db_backup();
     });
 }
 
 /** borra un punto de una stage */
 async function db_delete(nombre_etapa, id_punto) {
     _nombre_etapa = nombre_etapa;
-    return await db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), nombre_etapa]).delete();
+    db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), nombre_etapa]).delete().then(function () {
+        db_backup();
+    }).catch(function (err) {
+        console.error(err.stack || err);
+    });
+
+    //return await db.pruebas.where('[id_punto+nombre_etapa]').equals([parseInt(id_punto), nombre_etapa]).delete();
 }
 
 /** modifica un punto de una stage */
@@ -141,6 +126,7 @@ async function db_modifica_campo(id, campo, valor) {
             console.log('campo no reconocido');
             break;
     }
+    db_backup();
 }
 
 /** modifica un registro de una stage */
@@ -153,8 +139,9 @@ async function db_modifica_registro(id_punto, valor_nombre_poi, distancia, notas
             atributos: atributos
         });
     }).then(function () {
-        db_get_all_pois(_nombre_etapa).then(function (pois) {
-            //console.log(pois);
+        db_backup().then(function () {
+            db_get_all_pois(_nombre_etapa).then(function (pois) {
+            });
         });
     }).catch(Dexie.ModifyError, function (e) {
         console.error(e.failures.length + "failed to hire modify");
@@ -171,24 +158,27 @@ async function db_backup() {
         db.pruebas.toArray().then(function (pois) {
             //console.log(pois);
             let texto = JSON.stringify(pois, null, 4);
-
-            var endpoint = '/api/endpoint';
-            var http = new XMLHttpRequest();
-            http.open('POST', endpoint, true);
-            http.setRequestHeader('Content-type', 'application/json');
-            http.onreadystatechange = function () {
-                if (http.readyState === 4 && http.status === 200 && http.responseText) {
-                    console.log(http.responseText)
-                }
-            };
-
-            // Send request
-            http.send();
-
-
-            //download(texto, "VELETA 2022.json", "application/json");
+            envia_datos(texto, get_nombre_tour() + '.json');
         });
 
+    });
+}
+
+function envia_datos(texto, nombre_tour) {
+    console.log('nombre_tour', nombre_tour);
+    $.ajax({
+        type: 'POST',
+        url: '/api/endpoint',
+        data: {
+            texto: texto,
+            nombre_tour: nombre_tour
+        },
+        error: function (data) {
+            console.error(data);
+        },
+        success: function (data) {
+            console.log(data);
+        }
     });
 }
 

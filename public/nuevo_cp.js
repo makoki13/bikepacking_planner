@@ -8,30 +8,6 @@ var comentarios = '';
 var indice = 0;
 var indice_poi_asociado = 0;
 
-/* function get_nombre_tour() {
-    nombre = window.parent.get_nombre_tour();
-    console.log(nombre);
-    return nombre;
-}
-
-function get_nombre_etapa() {
-    return window.parent.get_nombre_etapa();
-}
-
-function salir() {
-    window.parent.desbloquea_insertar_registro();
-} */
-
-/* function removeFirstWord(str) {
-    const indexOfSpace = str.indexOf(' ');
-
-    if (indexOfSpace === -1) {
-        return '';
-    }
-
-    return str.substring(indexOfSpace + 1);
-} */
-
 function add_cp() {
     var nombre_etapa = window.parent.get_nombre_etapa();
 

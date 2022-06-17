@@ -8,8 +8,8 @@ router.get('/', function (req, res, next) {
   res.sendFile(__dirname + '/index.html');
 });
 
-function saveFile(url, body) {
-  fs.writeFile(url, body, (err) => {
+function guarda_fichero(url, body) {
+  fs.writeFile("tours/" + url, body, (err) => {
     if (err) {
       console.log('Error saving');
       throw err;
@@ -20,8 +20,9 @@ function saveFile(url, body) {
 }
 
 router.post('/api/endpoint', function (request, response) {
-  //saveFile(request.query.url, request.body.body);
-  response.send('This is a basic Example for Express.js by TUTORIALKART')
+  //console.log('request', request, 'response', response);
+  guarda_fichero(request.body.nombre_tour, request.body.texto);
+  response.send('ok')
 });
 
 

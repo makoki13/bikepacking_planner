@@ -1,9 +1,3 @@
-/* function get_nombre_tour() {
-    nombre = window.parent.get_nombre_tour();
-    //console.log(nombre);
-    return nombre;
-}
- */
 function carga_lista_stages() {
     db_get_stages().then(function (registros) {
         var lista_stages = Array();
