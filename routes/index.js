@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 function guarda_fichero(url, body) {
-  fs.writeFile("tours/" + url, body, (err) => {
+  fs.writeFile("public/tours/" + url, body, (err) => {
     if (err) {
       console.log('Error saving');
       throw err;
