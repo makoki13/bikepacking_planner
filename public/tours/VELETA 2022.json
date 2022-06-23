@@ -1998,7 +1998,7 @@
     {
         "nombre_etapa": "S4",
         "id_punto": 3,
-        "nombre_poi": "Castril (gas)*",
+        "nombre_poi": "Castril (gas)",
         "distancia": 24.2,
         "notas": "",
         "atributos": [
@@ -3084,9 +3084,1967 @@
         "nombre_poi": "Pto del Peralejo*",
         "distancia": 0,
         "notas": "",
-        "atributos": [],
+        "atributos": [
+            "inicio",
+            "incidencia"
+        ],
         "punto_referencia": 1,
         "tipo_poi": 1,
         "id": 245
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 2,
+        "nombre_poi": "Fuente Higuera",
+        "distancia": 3.4,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 246
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 3,
+        "nombre_poi": "Elche de la Sierra",
+        "distancia": 23.2,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 247
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 4,
+        "nombre_poi": "Gasolinera*",
+        "distancia": 26.2,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 248
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 5,
+        "nombre_poi": "Isso (gas)*",
+        "distancia": 53.9,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 249
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 6,
+        "nombre_poi": "Gasolinera (cruzar autovia)",
+        "distancia": 63.4,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 250
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 7,
+        "nombre_poi": "Inc CM-32121 / Gas (cruz. autov)",
+        "distancia": 69.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "incidencia"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 251
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 8,
+        "nombre_poi": "Jumilla*",
+        "distancia": 93.6,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 252
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 9,
+        "nombre_poi": "Inicio Subida 1",
+        "distancia": "69.6",
+        "notas": "D: 1.9Km. * T: 00:10 * F:  * M: 3.4% * Max: 4.6%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 2,
+        "id": 253
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 10,
+        "nombre_poi": "Fin Subida 1",
+        "distancia": "71.5",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 102,
+        "id": 254
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 11,
+        "nombre_poi": "Inicio Bajada 1",
+        "distancia": "0.1",
+        "notas": "D: 3.0Km. * T: 00:07 * M: -4.1% * Max: -0.4%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 12,
+        "tipo_poi": 3,
+        "id": 255
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 12,
+        "nombre_poi": "Fin Bajada 1",
+        "distancia": "3.1",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 103,
+        "id": 256
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 13,
+        "nombre_poi": "Inicio Bajada 2",
+        "distancia": "4.7",
+        "notas": "D: 2.0Km. * T: 00:04 * M: -3.1% * Max: -1.1%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 14,
+        "tipo_poi": 3,
+        "id": 257
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 14,
+        "nombre_poi": "Fin Bajada 2",
+        "distancia": "6.7",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 13,
+        "tipo_poi": 103,
+        "id": 258
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 15,
+        "nombre_poi": "Inicio Bajada 3",
+        "distancia": "13.8",
+        "notas": "D: 5.7Km. * T: 00:14 * M: -2.8% * Max: 1.1%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 16,
+        "tipo_poi": 3,
+        "id": 259
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 16,
+        "nombre_poi": "Fin Bajada 3",
+        "distancia": "19.5",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 15,
+        "tipo_poi": 103,
+        "id": 260
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 17,
+        "nombre_poi": "Inicio Bajada 4",
+        "distancia": "20.3",
+        "notas": "D: 1.0Km. * T: 00:02 * M: -3.5% * Max: 1.8%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 18,
+        "tipo_poi": 3,
+        "id": 261
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 18,
+        "nombre_poi": "Fin Bajada 4",
+        "distancia": "21.3",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 17,
+        "tipo_poi": 103,
+        "id": 262
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 19,
+        "nombre_poi": "Inicio Bajada 5",
+        "distancia": "23.8",
+        "notas": "D: 2.1Km. * T: 00:05 * M: -3.6% * Max: 1.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 20,
+        "tipo_poi": 3,
+        "id": 263
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 20,
+        "nombre_poi": "Fin Bajada 5",
+        "distancia": "25.9",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 19,
+        "tipo_poi": 103,
+        "id": 264
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 21,
+        "nombre_poi": "Inicio Bajada 6",
+        "distancia": "43.5",
+        "notas": "D: 1.3Km. * T: 00:03 * M: -3.6% * Max: 0.0%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 22,
+        "tipo_poi": 3,
+        "id": 265
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 22,
+        "nombre_poi": "Fin Bajada 6",
+        "distancia": "44.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 21,
+        "tipo_poi": 103,
+        "id": 266
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 23,
+        "nombre_poi": "Inicio Bajada 7",
+        "distancia": "89.8",
+        "notas": "D: 3.7Km. * T: 00:09 * M: -2.5% * Max: 1.1%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 24,
+        "tipo_poi": 3,
+        "id": 267
+    },
+    {
+        "nombre_etapa": "S9",
+        "id_punto": 24,
+        "nombre_poi": "Fin Bajada 7",
+        "distancia": "93.5",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 23,
+        "tipo_poi": 103,
+        "id": 268
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 1,
+        "nombre_poi": "Jumilla*",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "inicio"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 269
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 2,
+        "nombre_poi": "Gasolinera",
+        "distancia": 5.1,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 270
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 3,
+        "nombre_poi": "La Alqueria",
+        "distancia": 7.1,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 271
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 4,
+        "nombre_poi": "Fuente del Pino",
+        "distancia": 9.8,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 272
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 5,
+        "nombre_poi": "Gasolinera*",
+        "distancia": 12.7,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 273
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 6,
+        "nombre_poi": "Yecla (afueras)",
+        "distancia": 31.6,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 274
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 7,
+        "nombre_poi": "Caudete*",
+        "distancia": 46.9,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 275
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 8,
+        "nombre_poi": "Gasolinera cerca Fontanares*",
+        "distancia": 67.8,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 276
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 9,
+        "nombre_poi": "Conexion  CV-81",
+        "distancia": 86,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 277
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 10,
+        "nombre_poi": "Gasolinera",
+        "distancia": 87.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 278
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 11,
+        "nombre_poi": "Agullent",
+        "distancia": 94.1,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 1,
+        "id": 279
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 12,
+        "nombre_poi": "Benisoda",
+        "distancia": 97,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 12,
+        "tipo_poi": 1,
+        "id": 280
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 13,
+        "nombre_poi": "Atzeneta*",
+        "distancia": 100,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 13,
+        "tipo_poi": 1,
+        "id": 281
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 14,
+        "nombre_poi": "Inicio Subida 1",
+        "distancia": "14.1",
+        "notas": "D: 2.1Km. * T: 00:11 * F:  * M: 3.0% * Max: 5.5%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 15,
+        "tipo_poi": 2,
+        "id": 282
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 15,
+        "nombre_poi": "Fin Subida 1",
+        "distancia": "16.2",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 14,
+        "tipo_poi": 102,
+        "id": 283
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 16,
+        "nombre_poi": "Inicio Subida 2",
+        "distancia": "24.9",
+        "notas": "D: 1.5Km. * T: 00:09 * F:  * M: 5.0% * Max: 7.9%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 17,
+        "tipo_poi": 2,
+        "id": 284
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 17,
+        "nombre_poi": "Fin Subida 2",
+        "distancia": "26.4",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 16,
+        "tipo_poi": 102,
+        "id": 285
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 18,
+        "nombre_poi": "Inicio Subida 3",
+        "distancia": "31.7",
+        "notas": "D: 5.3Km. * T: 00:29 * F: 0.51 * M: 2.9% * Max: 6.8%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 19,
+        "tipo_poi": 2,
+        "id": 286
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 19,
+        "nombre_poi": "Fin Subida 3",
+        "distancia": "37.0",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 18,
+        "tipo_poi": 102,
+        "id": 287
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 20,
+        "nombre_poi": "Inicio Subida 4",
+        "distancia": "92.8",
+        "notas": "D: 1.3Km. * T: 00:07 * F:  * M: 3.0% * Max: 6.3%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 21,
+        "tipo_poi": 2,
+        "id": 288
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 21,
+        "nombre_poi": "Fin Subida 4",
+        "distancia": "94.1",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 20,
+        "tipo_poi": 102,
+        "id": 289
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 22,
+        "nombre_poi": "Inicio Subida 5",
+        "distancia": "98.1",
+        "notas": "D: 1.9Km. * T: 00:10 * F:  * M: 3.3% * Max: 9.3%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 23,
+        "tipo_poi": 2,
+        "id": 290
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 23,
+        "nombre_poi": "Fin Subida 5",
+        "distancia": "100.0",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 22,
+        "tipo_poi": 102,
+        "id": 291
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 24,
+        "nombre_poi": "Inicio Bajada 1",
+        "distancia": "0.3",
+        "notas": "D: 1.4Km. * T: 00:03 * M: -2.7% * Max: -1.7%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 25,
+        "tipo_poi": 3,
+        "id": 292
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 25,
+        "nombre_poi": "Fin Bajada 1",
+        "distancia": "1.7",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 24,
+        "tipo_poi": 103,
+        "id": 293
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 26,
+        "nombre_poi": "Inicio Bajada 2",
+        "distancia": "19.6",
+        "notas": "D: 5.2Km. * T: 00:12 * M: -3.4% * Max: -0.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 27,
+        "tipo_poi": 3,
+        "id": 294
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 27,
+        "nombre_poi": "Fin Bajada 2",
+        "distancia": "24.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 26,
+        "tipo_poi": 103,
+        "id": 295
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 28,
+        "nombre_poi": "Inicio Bajada 3",
+        "distancia": "26.4",
+        "notas": "D: 3.4Km. * T: 00:08 * M: -3.0% * Max: -0.3%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 29,
+        "tipo_poi": 3,
+        "id": 296
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 29,
+        "nombre_poi": "Fin Bajada 3",
+        "distancia": "29.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 28,
+        "tipo_poi": 103,
+        "id": 297
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 30,
+        "nombre_poi": "Inicio Bajada 4",
+        "distancia": "43.7",
+        "notas": "D: 1.2Km. * T: 00:02 * M: -3.3% * Max: -2.0%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 31,
+        "tipo_poi": 3,
+        "id": 298
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 31,
+        "nombre_poi": "Fin Bajada 4",
+        "distancia": "44.9",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 30,
+        "tipo_poi": 103,
+        "id": 299
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 32,
+        "nombre_poi": "Inicio Bajada 5",
+        "distancia": "52.8",
+        "notas": "D: 1.5Km. * T: 00:03 * M: -2.8% * Max: 3.0%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 33,
+        "tipo_poi": 3,
+        "id": 300
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 33,
+        "nombre_poi": "Fin Bajada 5",
+        "distancia": "54.3",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 32,
+        "tipo_poi": 103,
+        "id": 301
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 34,
+        "nombre_poi": "Inicio Bajada 6",
+        "distancia": "73.5",
+        "notas": "D: 6.5Km. * T: 00:17 * M: -3.0% * Max: 4.5%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 35,
+        "tipo_poi": 3,
+        "id": 302
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 35,
+        "nombre_poi": "Fin Bajada 6",
+        "distancia": "80.0",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 34,
+        "tipo_poi": 103,
+        "id": 303
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 36,
+        "nombre_poi": "Inicio Bajada 7",
+        "distancia": "82.3",
+        "notas": "D: 1.1Km. * T: 00:02 * M: -3.8% * Max: -0.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 37,
+        "tipo_poi": 3,
+        "id": 304
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 37,
+        "nombre_poi": "Fin Bajada 7",
+        "distancia": "83.4",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 36,
+        "tipo_poi": 103,
+        "id": 305
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 38,
+        "nombre_poi": "Inicio Bajada 8",
+        "distancia": "94.1",
+        "notas": "D: 1.6Km. * T: 00:03 * M: -4.4% * Max: 0.9%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 39,
+        "tipo_poi": 3,
+        "id": 306
+    },
+    {
+        "nombre_etapa": "S10",
+        "id_punto": 39,
+        "nombre_poi": "Fin Bajada 8",
+        "distancia": "95.7",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 38,
+        "tipo_poi": 103,
+        "id": 307
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 1,
+        "nombre_poi": "Adzaneta",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 308
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 2,
+        "nombre_poi": "Carricola",
+        "distancia": 3.9,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 309
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 3,
+        "nombre_poi": "Beniatjar",
+        "distancia": 11.5,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 310
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 4,
+        "nombre_poi": "Rafol de Salem",
+        "distancia": 14.9,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 311
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 5,
+        "nombre_poi": "Gasolinera Castelló de Rugat*",
+        "distancia": 17.3,
+        "notas": "",
+        "atributos": [
+            "gasolinera",
+            "poblacion"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 312
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 6,
+        "nombre_poi": "Montixelvo",
+        "distancia": 21.3,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 1,
+        "id": 313
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 7,
+        "nombre_poi": "Lloc Nou de Sant Jeronim",
+        "distancia": 27,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 1,
+        "id": 314
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 8,
+        "nombre_poi": "Gasolinera Venta Andreu",
+        "distancia": 29.1,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 1,
+        "id": 315
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 9,
+        "nombre_poi": "Rotova",
+        "distancia": 30.8,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 1,
+        "id": 316
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 10,
+        "nombre_poi": "Gandia",
+        "distancia": 45.1,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 1,
+        "id": 317
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 11,
+        "nombre_poi": "Inicio Subida 1",
+        "distancia": "7.8",
+        "notas": "D: 1.1Km. * T: 00:05 * F:  * M: 3.4% * Max: 9.7%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 12,
+        "tipo_poi": 2,
+        "id": 318
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 12,
+        "nombre_poi": "Fin Subida 1",
+        "distancia": "8.9",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 102,
+        "id": 319
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 13,
+        "nombre_poi": "Inicio Subida 2",
+        "distancia": "11.7",
+        "notas": "D: 1.1Km. * T: 00:05 * F:  * M: 3.9% * Max: 13.1%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 14,
+        "tipo_poi": 2,
+        "id": 320
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 14,
+        "nombre_poi": "Fin Subida 2",
+        "distancia": "12.8",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 13,
+        "tipo_poi": 102,
+        "id": 321
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 15,
+        "nombre_poi": "Inicio Bajada 1",
+        "distancia": "2.5",
+        "notas": "D: 1.3Km. * T: 00:03 * M: -3.0% * Max: 1.4%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 16,
+        "tipo_poi": 3,
+        "id": 322
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 16,
+        "nombre_poi": "Fin Bajada 1",
+        "distancia": "3.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 15,
+        "tipo_poi": 103,
+        "id": 323
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 17,
+        "nombre_poi": "Inicio Bajada 2",
+        "distancia": "12.8",
+        "notas": "D: 2.5Km. * T: 00:05 * M: -5.0% * Max: 0.0%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 18,
+        "tipo_poi": 3,
+        "id": 324
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 18,
+        "nombre_poi": "Fin Bajada 2",
+        "distancia": "15.3",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 17,
+        "tipo_poi": 103,
+        "id": 325
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 19,
+        "nombre_poi": "Inicio Bajada 3",
+        "distancia": "18.2",
+        "notas": "D: 3.9Km. * T: 00:10 * M: -3.4% * Max: 4.3%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 20,
+        "tipo_poi": 3,
+        "id": 326
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 20,
+        "nombre_poi": "Fin Bajada 3",
+        "distancia": "22.1",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 19,
+        "tipo_poi": 103,
+        "id": 327
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 21,
+        "nombre_poi": "Inicio Bajada 4",
+        "distancia": "23.0",
+        "notas": "D: 1.2Km. * T: 00:02 * M: -3.3% * Max: -1.1%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 22,
+        "tipo_poi": 3,
+        "id": 328
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 22,
+        "nombre_poi": "Fin Bajada 4",
+        "distancia": "24.2",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 21,
+        "tipo_poi": 103,
+        "id": 329
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 23,
+        "nombre_poi": "Inicio Bajada 5",
+        "distancia": "25.4",
+        "notas": "D: 1.2Km. * T: 00:02 * M: -5.7% * Max: -0.4%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 24,
+        "tipo_poi": 3,
+        "id": 330
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 24,
+        "nombre_poi": "Fin Bajada 5",
+        "distancia": "26.6",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 23,
+        "tipo_poi": 103,
+        "id": 331
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 25,
+        "nombre_poi": "Inicio Bajada 6",
+        "distancia": "29.0",
+        "notas": "D: 2.7Km. * T: 00:06 * M: -3.3% * Max: 0.8%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 26,
+        "tipo_poi": 3,
+        "id": 332
+    },
+    {
+        "nombre_etapa": "S11",
+        "id_punto": 26,
+        "nombre_poi": "Fin Bajada 6",
+        "distancia": "31.7",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 25,
+        "tipo_poi": 103,
+        "id": 333
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 1,
+        "nombre_poi": "Güejar Sierra",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "poblacion"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 334
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 2,
+        "nombre_poi": "Dvo. Carretera Ant.",
+        "distancia": 7.8,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 335
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 3,
+        "nombre_poi": "Collado Sabinas",
+        "distancia": 15.1,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 336
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 4,
+        "nombre_poi": "Hoya de la Mora",
+        "distancia": 20.2,
+        "notas": "",
+        "atributos": [
+            "comida",
+            "incidencia"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 337
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 5,
+        "nombre_poi": "Dvo, Lanjaron",
+        "distancia": 29.6,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 338
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 7,
+        "nombre_poi": "Inicio Subida al Veleta",
+        "distancia": "0.5",
+        "notas": "D: 31.2Km. * T: 03:46 * F: 20.68 * M: 7.8% * Max: 26.4%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 2,
+        "id": 340
+    },
+    {
+        "nombre_etapa": "VELETA",
+        "id_punto": 8,
+        "nombre_poi": "Fin Subida al Veleta",
+        "distancia": "31.7",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 102,
+        "id": 341
+    },
+    {
+        "nombre_etapa": "S4",
+        "id_punto": 64,
+        "nombre_poi": "Gasolinera (07.22)*",
+        "distancia": 19.8,
+        "notas": "",
+        "atributos": [
+            "gasolinera"
+        ],
+        "punto_referencia": 64,
+        "tipo_poi": 1,
+        "id": 342
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 23,
+        "nombre_poi": "Inicio Subida 3",
+        "distancia": "22.6",
+        "notas": "D: 10.7Km. * T: 00:53 * F: 1.09 * M: 3.4% * Max: 10.5%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 24,
+        "tipo_poi": 2,
+        "id": 343
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 24,
+        "nombre_poi": "Fin Subida 3",
+        "distancia": "33.3",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 23,
+        "tipo_poi": 102,
+        "id": 344
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 25,
+        "nombre_poi": "Inicio Subida 4",
+        "distancia": "40.2",
+        "notas": "D: 7.3Km. * T: 00:43 * F: 1.10 * M: 3.7% * Max: 7.7%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 26,
+        "tipo_poi": 2,
+        "id": 345
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 26,
+        "nombre_poi": "Fin Subida 4",
+        "distancia": "47.5",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 25,
+        "tipo_poi": 102,
+        "id": 346
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 27,
+        "nombre_poi": "Inicio Subida 5",
+        "distancia": "61.6",
+        "notas": "D: 1.8Km. * T: 00:09 * F:  * M: 3.4% * Max: 6.5%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 28,
+        "tipo_poi": 2,
+        "id": 347
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 28,
+        "nombre_poi": "Fin Subida 5",
+        "distancia": "63.4",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 27,
+        "tipo_poi": 102,
+        "id": 348
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 29,
+        "nombre_poi": "Inicio Subida 6",
+        "distancia": "75.8",
+        "notas": "D: 2.7Km. * T: 00:16 * F: 0.54 * M: 4.0% * Max: 9.2%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 30,
+        "tipo_poi": 2,
+        "id": 349
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 30,
+        "nombre_poi": "Fin Subida 6",
+        "distancia": "78.5",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 29,
+        "tipo_poi": 102,
+        "id": 350
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 31,
+        "nombre_poi": "Inicio Subida 7",
+        "distancia": "81.2",
+        "notas": "D: 10.2Km. * T: 00:55 * F: 1.44 * M: 4.1% * Max: 13.2%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 32,
+        "tipo_poi": 2,
+        "id": 351
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 32,
+        "nombre_poi": "Fin Subida 7",
+        "distancia": "91.4",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 31,
+        "tipo_poi": 102,
+        "id": 352
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 33,
+        "nombre_poi": "Inicio Subida 8",
+        "distancia": "112.0",
+        "notas": "D: 6.9Km. * T: 00:41 * F: 1.74 * M: 4.8% * Max: 18.0%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 34,
+        "tipo_poi": 2,
+        "id": 353
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 34,
+        "nombre_poi": "Fin Subida 8",
+        "distancia": "118.9",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 33,
+        "tipo_poi": 102,
+        "id": 354
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 35,
+        "nombre_poi": "Inicio Bajada 1",
+        "distancia": "6.2",
+        "notas": "D: 1.2Km. * T: 00:02 * M: -3.5% * Max: -1.1%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 36,
+        "tipo_poi": 3,
+        "id": 355
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 36,
+        "nombre_poi": "Fin Bajada 1",
+        "distancia": "7.4",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 35,
+        "tipo_poi": 103,
+        "id": 356
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 37,
+        "nombre_poi": "Inicio Bajada 2",
+        "distancia": "11.1",
+        "notas": "D: 1.1Km. * T: 00:02 * M: -3.3% * Max: -0.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 38,
+        "tipo_poi": 3,
+        "id": 357
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 38,
+        "nombre_poi": "Fin Bajada 2",
+        "distancia": "12.2",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 37,
+        "tipo_poi": 103,
+        "id": 358
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 39,
+        "nombre_poi": "Inicio Bajada 3",
+        "distancia": "13.8",
+        "notas": "D: 1.7Km. * T: 00:04 * M: -4.9% * Max: 4.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 40,
+        "tipo_poi": 3,
+        "id": 359
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 40,
+        "nombre_poi": "Fin Bajada 3",
+        "distancia": "15.5",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 39,
+        "tipo_poi": 103,
+        "id": 360
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 41,
+        "nombre_poi": "Inicio Bajada 4",
+        "distancia": "35.5",
+        "notas": "D: 4.3Km. * T: 00:10 * M: -2.7% * Max: -1.1%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 42,
+        "tipo_poi": 3,
+        "id": 361
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 42,
+        "nombre_poi": "Fin Bajada 4",
+        "distancia": "39.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 41,
+        "tipo_poi": 103,
+        "id": 362
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 43,
+        "nombre_poi": "Inicio Bajada 5",
+        "distancia": "49.1",
+        "notas": "D: 2.7Km. * T: 00:06 * M: -3.6% * Max: 2.8%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 44,
+        "tipo_poi": 3,
+        "id": 363
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 44,
+        "nombre_poi": "Fin Bajada 5",
+        "distancia": "51.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 43,
+        "tipo_poi": 103,
+        "id": 364
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 45,
+        "nombre_poi": "Inicio Bajada 6",
+        "distancia": "52.6",
+        "notas": "D: 1.6Km. * T: 00:03 * M: -4.6% * Max: -0.5%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 46,
+        "tipo_poi": 3,
+        "id": 365
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 46,
+        "nombre_poi": "Fin Bajada 6",
+        "distancia": "54.2",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 45,
+        "tipo_poi": 103,
+        "id": 366
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 47,
+        "nombre_poi": "Inicio Bajada 7",
+        "distancia": "57.5",
+        "notas": "D: 1.5Km. * T: 00:03 * M: -3.0% * Max: -0.6%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 48,
+        "tipo_poi": 3,
+        "id": 367
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 48,
+        "nombre_poi": "Fin Bajada 7",
+        "distancia": "59.0",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 47,
+        "tipo_poi": 103,
+        "id": 368
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 49,
+        "nombre_poi": "Inicio Bajada 8",
+        "distancia": "72.5",
+        "notas": "D: 3.3Km. * T: 00:08 * M: -4.4% * Max: 0.5%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 50,
+        "tipo_poi": 3,
+        "id": 369
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 50,
+        "nombre_poi": "Fin Bajada 8",
+        "distancia": "75.8",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 49,
+        "tipo_poi": 103,
+        "id": 370
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 51,
+        "nombre_poi": "Inicio Bajada 9",
+        "distancia": "91.4",
+        "notas": "D: 2.2Km. * T: 00:05 * M: -4.9% * Max: 3.7%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 52,
+        "tipo_poi": 3,
+        "id": 371
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 52,
+        "nombre_poi": "Fin Bajada 9",
+        "distancia": "93.6",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 51,
+        "tipo_poi": 103,
+        "id": 372
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 53,
+        "nombre_poi": "Inicio Bajada 10",
+        "distancia": "95.4",
+        "notas": "D: 3.6Km. * T: 00:09 * M: -3.2% * Max: 4.8%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 54,
+        "tipo_poi": 3,
+        "id": 373
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 54,
+        "nombre_poi": "Fin Bajada 10",
+        "distancia": "99.0",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 53,
+        "tipo_poi": 103,
+        "id": 374
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 55,
+        "nombre_poi": "Inicio Bajada 11",
+        "distancia": "101.0",
+        "notas": "D: 11.0Km. * T: 00:28 * M: -3.3% * Max: 3.8%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 56,
+        "tipo_poi": 3,
+        "id": 375
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 56,
+        "nombre_poi": "Fin Bajada 11",
+        "distancia": "112.0",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 55,
+        "tipo_poi": 103,
+        "id": 376
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 57,
+        "nombre_poi": "Inicio CP1",
+        "distancia": "0.0",
+        "notas": "D: 6.2Km. * Asc:  * M: 3%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 58,
+        "tipo_poi": 4,
+        "id": 377
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 58,
+        "nombre_poi": "Fin CP1",
+        "distancia": 6.2,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 57,
+        "tipo_poi": 104,
+        "id": 378
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 59,
+        "nombre_poi": "Inicio CP2",
+        "distancia": "10.1",
+        "notas": "D: 0.7Km. * Asc:  * M: 5%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 60,
+        "tipo_poi": 4,
+        "id": 379
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 60,
+        "nombre_poi": "Fin CP2",
+        "distancia": 10.799999999999999,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 59,
+        "tipo_poi": 104,
+        "id": 380
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 61,
+        "nombre_poi": "Inicio CP3",
+        "distancia": "12.1",
+        "notas": "D: 0.8Km. * Asc:  * M: 6%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 62,
+        "tipo_poi": 4,
+        "id": 381
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 62,
+        "nombre_poi": "Fin CP3",
+        "distancia": 12.9,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 61,
+        "tipo_poi": 104,
+        "id": 382
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 63,
+        "nombre_poi": "Inicio CP4",
+        "distancia": "27.6",
+        "notas": "D: 4.7Km. * Asc:  * M: 4%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 64,
+        "tipo_poi": 4,
+        "id": 383
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 64,
+        "nombre_poi": "Fin CP4",
+        "distancia": 32.300000000000004,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 63,
+        "tipo_poi": 104,
+        "id": 384
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 65,
+        "nombre_poi": "Inicio CP5",
+        "distancia": "40.1",
+        "notas": "D: 7.4Km. * Asc:  * M: 3%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 66,
+        "tipo_poi": 4,
+        "id": 385
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 66,
+        "nombre_poi": "Fin CP5",
+        "distancia": 47.5,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 65,
+        "tipo_poi": 104,
+        "id": 386
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 67,
+        "nombre_poi": "Inicio CP6",
+        "distancia": "51.7",
+        "notas": "D: 0.9Km. * Asc:  * M: 6%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 68,
+        "tipo_poi": 4,
+        "id": 387
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 68,
+        "nombre_poi": "Fin CP6",
+        "distancia": 52.6,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 67,
+        "tipo_poi": 104,
+        "id": 388
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 69,
+        "nombre_poi": "Inicio CP7",
+        "distancia": "61.6",
+        "notas": "D: 1.0Km. * Asc:  * M: 4%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 70,
+        "tipo_poi": 4,
+        "id": 389
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 70,
+        "nombre_poi": "Fin CP7",
+        "distancia": 62.6,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 69,
+        "tipo_poi": 104,
+        "id": 390
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 71,
+        "nombre_poi": "Inicio CP8",
+        "distancia": "76.0",
+        "notas": "D: 2.4Km. * Asc:  * M: 4%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 72,
+        "tipo_poi": 4,
+        "id": 391
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 72,
+        "nombre_poi": "Fin CP8",
+        "distancia": 78.4,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 71,
+        "tipo_poi": 104,
+        "id": 392
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 73,
+        "nombre_poi": "Inicio CP9",
+        "distancia": "81.0",
+        "notas": "D: 10.3Km. * Asc:  * M: 3%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 74,
+        "tipo_poi": 4,
+        "id": 393
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 74,
+        "nombre_poi": "Fin CP9",
+        "distancia": 91.3,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 73,
+        "tipo_poi": 104,
+        "id": 394
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 75,
+        "nombre_poi": "Inicio CP10",
+        "distancia": "111.0",
+        "notas": "D: 6.9Km. * Asc:  * M: 7%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 76,
+        "tipo_poi": 4,
+        "id": 395
+    },
+    {
+        "nombre_etapa": "S5",
+        "id_punto": 76,
+        "nombre_poi": "Fin CP10",
+        "distancia": 117.9,
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 75,
+        "tipo_poi": 104,
+        "id": 396
     }
 ]

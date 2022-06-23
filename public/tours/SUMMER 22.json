@@ -1,0 +1,327 @@
+[
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 1,
+        "nombre_poi": "Jaén",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "inicio"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 1
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 1,
+        "nombre_poi": "Güejar-Sierra",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "inicio"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 2
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 2,
+        "nombre_poi": "Dvo Carretera Antigua",
+        "distancia": 7.8,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 1,
+        "id": 4
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 3,
+        "nombre_poi": "Collado Sabinas",
+        "distancia": 15.1,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 1,
+        "id": 5
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 4,
+        "nombre_poi": "Hoya de la Mora",
+        "distancia": 20.2,
+        "notas": "",
+        "atributos": [
+            "comida"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 1,
+        "id": 6
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 5,
+        "nombre_poi": "Dvo. Lanjarón",
+        "distancia": 29.6,
+        "notas": "",
+        "atributos": [
+            "incidencia"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 1,
+        "id": 7
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 7,
+        "nombre_poi": "Inicio Subida al Veleta",
+        "distancia": "1.1",
+        "notas": "D: 31.1Km. * T: 04:26 * F: 20.79 * M: 7.8% * Max: 15.6%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 2,
+        "id": 9
+    },
+    {
+        "nombre_etapa": "2 VELETA",
+        "id_punto": 8,
+        "nombre_poi": "Fin Subida al Veleta",
+        "distancia": "32.2",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 102,
+        "id": 10
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 2,
+        "nombre_poi": "Inicio Subida 1",
+        "distancia": "34.3",
+        "notas": "D: 9.9Km. * T: 00:55 * F: 1.01 * M: 3.3% * Max: 12.9%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 3,
+        "tipo_poi": 2,
+        "id": 11
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 3,
+        "nombre_poi": "Fin Subida 1",
+        "distancia": "44.2",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 2,
+        "tipo_poi": 102,
+        "id": 12
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 4,
+        "nombre_poi": "Inicio Subida 2",
+        "distancia": "67.4",
+        "notas": "D: 1.9Km. * T: 00:12 * F: 0.66 * M: 4.6% * Max: 13.9%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 5,
+        "tipo_poi": 2,
+        "id": 13
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 5,
+        "nombre_poi": "Fin Subida 2",
+        "distancia": "69.3",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 4,
+        "tipo_poi": 102,
+        "id": 14
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 6,
+        "nombre_poi": "Inicio Subida 3",
+        "distancia": "74.8",
+        "notas": "D: 1.1Km. * T: 00:06 * F:  * M: 4% * Max: 6.9%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 7,
+        "tipo_poi": 2,
+        "id": 15
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 7,
+        "nombre_poi": "Fin Subida 3",
+        "distancia": "75.9",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 6,
+        "tipo_poi": 102,
+        "id": 16
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 8,
+        "nombre_poi": "Inicio Subida 4",
+        "distancia": "106.8",
+        "notas": "D: 13.0Km. * T: 01:10 * F: 1.31 * M: 3.3% * Max: 17.9%",
+        "atributos": [
+            "inicio_subida"
+        ],
+        "punto_referencia": 9,
+        "tipo_poi": 2,
+        "id": 17
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 9,
+        "nombre_poi": "Fin Subida 4",
+        "distancia": "119.8",
+        "notas": "",
+        "atributos": [
+            "fin_subida"
+        ],
+        "punto_referencia": 8,
+        "tipo_poi": 102,
+        "id": 18
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 10,
+        "nombre_poi": "Inicio Bajada 1",
+        "distancia": "0.3",
+        "notas": "D: 1.6Km. * T: 00:03 * M: -3.5% * Max: -1.3%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 11,
+        "tipo_poi": 3,
+        "id": 19
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 11,
+        "nombre_poi": "Fin Bajada 1",
+        "distancia": "1.9",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 10,
+        "tipo_poi": 103,
+        "id": 20
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 12,
+        "nombre_poi": "Inicio Bajada 2",
+        "distancia": "64.5",
+        "notas": "D: 2.9Km. * T: 00:07 * M: -4.4% * Max: 1.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 13,
+        "tipo_poi": 3,
+        "id": 21
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 13,
+        "nombre_poi": "Fin Bajada 2",
+        "distancia": "67.4",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 12,
+        "tipo_poi": 103,
+        "id": 22
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 14,
+        "nombre_poi": "Inicio Bajada 3",
+        "distancia": "69.3",
+        "notas": "D: 3.0Km. * T: 00:07 * M: -4.9% * Max: 0.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 15,
+        "tipo_poi": 3,
+        "id": 23
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 15,
+        "nombre_poi": "Fin Bajada 3",
+        "distancia": "72.3",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 14,
+        "tipo_poi": 103,
+        "id": 24
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 16,
+        "nombre_poi": "Inicio Bajada 4",
+        "distancia": "81.9",
+        "notas": "D: 1.0Km. * T: 00:02 * M: -3.1% * Max: -1.2%",
+        "atributos": [
+            "inicio_bajada"
+        ],
+        "punto_referencia": 17,
+        "tipo_poi": 3,
+        "id": 25
+    },
+    {
+        "nombre_etapa": "1 JAEN - GÜEJAR",
+        "id_punto": 17,
+        "nombre_poi": "Fin Bajada 4",
+        "distancia": "82.9",
+        "notas": "",
+        "atributos": [
+            "fin_bajada"
+        ],
+        "punto_referencia": 16,
+        "tipo_poi": 103,
+        "id": 26
+    },
+    {
+        "nombre_etapa": "3 Güejar 1",
+        "id_punto": 1,
+        "nombre_poi": "Güejar-Sierra",
+        "distancia": 0,
+        "notas": "",
+        "atributos": [
+            "inicio"
+        ],
+        "punto_referencia": 1,
+        "tipo_poi": 1,
+        "id": 37
+    }
+]
